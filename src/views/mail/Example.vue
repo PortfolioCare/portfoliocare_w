@@ -20,7 +20,7 @@ import { accounts, mails } from "./data/mails";
       class="block dark:hidden"
     />
   </div>
-  <div class="hidden flex-col md:flex h-dvh">
+  <div class="flex-col md:flex h-dvh">
     <Mail :accounts="accounts" :mails="mails" :nav-collapsed-size="4" />
   </div>
 </template>
