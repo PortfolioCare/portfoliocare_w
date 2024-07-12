@@ -42,6 +42,9 @@ importers:
       '@iconify/vue':
         specifier: ^4.1.2
         version: 4.1.2(vue@3.4.31(typescript@5.5.3))
+      '@types/date-fns':
+        specifier: ^2.6.0
+        version: 2.6.0
       '@types/node':
         specifier: ^20.14.10
         version: 20.14.10
@@ -386,6 +389,10 @@ packages:
     resolution: {integrity: sha512-uhty1LzUbbcVc5zdMMSUjUt/ECTlMCtK49Ww7dH2m4lNNLGYwkj5SbfrAD8uCZxV1VeV7DRMXqhwUTELyR5rrA==}
     peerDependencies:
       vue: ^2.7.0 || ^3.0.0
+
+  '@types/date-fns@2.6.0':
+    resolution: {integrity: sha512-9DSw2ZRzV0Tmpa6PHHJbMcZn79HHus+BBBohcOaDzkK/G3zMjDUDYjJIWBFLbkh+1+/IOS0A59BpQfdr37hASg==}
+    deprecated: This is a stub types definition for date-fns (https://github.com/date-fns/date-fns). date-fns provides its own type definitions, so you don't need @types/date-fns installed!
 
   '@types/estree@1.0.5':
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
@@ -1278,6 +1285,10 @@ snapshots:
     dependencies:
       '@tanstack/virtual-core': 3.8.1
       vue: 3.4.31(typescript@5.5.3)
+
+  '@types/date-fns@2.6.0':
+    dependencies:
+      date-fns: 3.6.0
 
   '@types/estree@1.0.5': {}
 
