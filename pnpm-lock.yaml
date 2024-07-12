@@ -42,9 +42,6 @@ importers:
       '@iconify/vue':
         specifier: ^4.1.2
         version: 4.1.2(vue@3.4.31(typescript@5.5.3))
-      '@types/date-fns':
-        specifier: ^2.6.0
-        version: 2.6.0
       '@types/node':
         specifier: ^20.14.10
         version: 20.14.10
@@ -55,7 +52,7 @@ importers:
         specifier: ^10.4.19
         version: 10.4.19(postcss@8.4.39)
       electron:
-        specifier: ^30.1.1
+        specifier: ^30.2.0
         version: 30.2.0
       electron-builder:
         specifier: ^24.13.3
@@ -449,10 +446,6 @@ packages:
 
   '@types/cacheable-request@6.0.3':
     resolution: {integrity: sha512-IQ3EbTzGxIigb1I3qPZc1rWJnH0BmSKv5QYTalEwweFvyBDLSAe24zP0le/hyi7ecGfZVlIVAg4BZqb8WBwKqw==}
-
-  '@types/date-fns@2.6.0':
-    resolution: {integrity: sha512-9DSw2ZRzV0Tmpa6PHHJbMcZn79HHus+BBBohcOaDzkK/G3zMjDUDYjJIWBFLbkh+1+/IOS0A59BpQfdr37hASg==}
-    deprecated: This is a stub types definition for date-fns (https://github.com/date-fns/date-fns). date-fns provides its own type definitions, so you don't need @types/date-fns installed!
 
   '@types/debug@4.1.12':
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
@@ -2218,10 +2211,6 @@ snapshots:
       '@types/keyv': 3.1.4
       '@types/node': 20.14.10
       '@types/responselike': 1.0.3
-
-  '@types/date-fns@2.6.0':
-    dependencies:
-      date-fns: 3.6.0
 
   '@types/debug@4.1.12':
     dependencies:
