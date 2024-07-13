@@ -5,9 +5,11 @@ import { defineConfig, loadEnv } from "vite";
 import tailwind from "tailwindcss";
 import autoprefixer from "autoprefixer";
 import electron from "vite-plugin-electron/simple";
+import { viteMockServe } from "vite-plugin-mock";
 export default defineConfig(({ mode }) => {
   // 加载环境变量
   const env = loadEnv(mode, process.cwd());
+  console.log(mode);
   console.log(env);
   return {
     css: {
@@ -17,6 +19,12 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       vue(),
+      viteMockServe({
+        mockPath: "src/mock/api", // mock 文件夹路径
+        enable: env.VITE_MOCK === "true", // 开发环境启用 mock
+        watchFiles: true,
+        configPath: "src/mock/vite.mock.config.ts",
+      }),
       electron({
         main: {
           // Shortcut of `build.lib.entry`.
