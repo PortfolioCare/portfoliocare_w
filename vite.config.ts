@@ -6,7 +6,6 @@ import tailwind from "tailwindcss";
 import autoprefixer from "autoprefixer";
 import electron from "vite-plugin-electron/simple";
 import { viteMockServe } from "vite-plugin-mock";
-import Icons from "unplugin-icons/vite";
 export default defineConfig(({ mode }) => {
   // 加载环境变量
   const env = loadEnv(mode, process.cwd());
@@ -20,7 +19,6 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       vue(),
-      Icons({}),
       viteMockServe({
         mockPath: "src/mock/api", // mock 文件夹路径
         watchFiles: true,
