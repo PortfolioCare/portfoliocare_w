@@ -21,9 +21,10 @@ export default defineConfig(({ mode }) => {
       vue(),
       viteMockServe({
         mockPath: "src/mock/api", // mock 文件夹路径
-        enable: env.VITE_MOCK === "true", // 开发环境启用 mock
         watchFiles: true,
-        configPath: "src/mock/vite.mock.config.ts",
+        localEnabled: true,
+        prodEnabled: true,
+        injectCode: `import { setupProdMockServer } from './mock/mockProdServer'; setupProdMockServer();`,
       }),
       electron({
         main: {
