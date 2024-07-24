@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Example from "@/views/mail/Example.vue";
 import axios from "@/services/axios";
 import { onMounted, ref } from "vue";
 console.log(import.meta.env);
@@ -15,6 +14,6 @@ onMounted(async () => {
 
 <template>
   <div>
-    <Example />
+    <RouterView />
   </div>
 </template>
