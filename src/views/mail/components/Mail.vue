@@ -151,7 +151,6 @@ function onExpand() {
     >
       <ResizablePanel
         id="resize-panel-1"
-        :default-size="defaultLayout[0]"
         :collapsed-size="navCollapsedSize"
         collapsible
         :min-size="15"
