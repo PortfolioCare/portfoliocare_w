@@ -4,7 +4,7 @@ import { accounts, mails } from "./data/mails";
 </script>
 
 <template>
-  <div class="flex-col md:flex w-full">
+  <div class="flex-col md:flex w-dvh h-dvh">
     <Mail :accounts="accounts" :mails="mails" :nav-collapsed-size="4" />
   </div>
 </template>
