@@ -210,7 +210,7 @@ const today = new Date();
         {{ mail.text }}
       </div>
       <Separator class="mt-auto" />
-      <div class="p-4">
+      <div class="p-4 min-h-[200px]">
         <form>
           <div class="grid gap-4">
             <Textarea class="p-4" :placeholder="`Reply ${mail.name}...`" />
