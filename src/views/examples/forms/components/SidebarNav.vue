@@ -11,23 +11,23 @@ interface Item {
 const sidebarNavItems: Item[] = [
   {
     title: "Profile",
-    href: "/forms",
+    href: "/examples/forms",
   },
   {
     title: "Account",
-    href: "/forms/account",
+    href: "/examples/forms/account",
   },
   {
     title: "Appearance",
-    href: "/forms/appearance",
+    href: "/examples/forms/appearance",
   },
   {
     title: "Notifications",
-    href: "/forms/notifications",
+    href: "/examples/forms/notifications",
   },
   {
     title: "Display",
-    href: "/forms/display",
+    href: "/examples/forms/display",
   },
 ];
 </script>
