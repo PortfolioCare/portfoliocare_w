@@ -43,15 +43,7 @@ const mailFallbackName = computed(() => {
     .map((chunk) => chunk[0])
     .join("");
 });
-const ondse = () => {
-  console.log("onsl");
-  // 修改 html中class
-  const html = document.querySelector("html");
-  if (html) {
-    console.log(html.className);
-    html.className = "customer";
-  }
-};
+
 const today = new Date();
 </script>
 
@@ -210,7 +202,7 @@ const today = new Date();
         {{ mail.text }}
       </div>
       <Separator class="mt-auto" />
-      <div class="p-4 min-h-[190px]">
+      <div class="p-4 h-[190px]">
         <form>
           <div class="grid gap-4">
             <Textarea class="p-4" :placeholder="`Reply ${mail.name}...`" />
@@ -218,7 +210,7 @@ const today = new Date();
               <Label html-for="mute" class="flex items-center gap-2 text-xs font-normal">
                 <Switch id="mute" aria-label="Mute thread" /> Mute this thread
               </Label>
-              <Button type="button" size="sm" class="ml-auto" @click="ondse"> Send </Button>
+              <Button type="button" size="sm" class="ml-auto"> Send </Button>
             </div>
           </div>
         </form>

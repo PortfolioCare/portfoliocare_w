@@ -147,10 +147,11 @@ function onExpand() {
     <ResizablePanelGroup
       id="resize-panel-group-1"
       direction="horizontal"
-      class="h-dvh items-stretch"
+      class="h-full items-stretch"
     >
       <ResizablePanel
         id="resize-panel-1"
+        :default-size="defaultLayout[0]"
         :collapsed-size="navCollapsedSize"
         collapsible
         :min-size="15"
