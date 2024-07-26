@@ -24,6 +24,29 @@ const routes = [
       {
         path: "forms",
         component: () => import("@/views/forms/Example.vue"),
+        redirect: "/forms/Profile",
+        children: [
+          {
+            path: "Profile",
+            component: () => import("@/views/forms/components/ProfileForm.vue"),
+          },
+          {
+            path: "Account",
+            component: () => import("@/views/forms/components/AccountForm.vue"),
+          },
+          {
+            path: "Appearance",
+            component: () => import("@/views/forms/components/AppearanceForm.vue"),
+          },
+          {
+            path: "Notifications",
+            component: () => import("@/views/forms/components/NotificationsForm.vue"),
+          },
+          {
+            path: "Display",
+            component: () => import("@/views/forms/components/DisplayForm.vue"),
+          },
+        ],
       },
       {
         path: "music",

@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import FormsLayout from './layouts/FormsLayout.vue'
-import ProfileForm from './components/ProfileForm.vue'
+import FormsLayout from "./layouts/FormsLayout.vue";
 </script>
 
 <template>
   <FormsLayout>
-    <ProfileForm />
+    <RouterView />
   </FormsLayout>
 </template>
