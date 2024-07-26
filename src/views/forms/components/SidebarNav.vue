@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useRoute } from "vitepress";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
@@ -7,8 +6,6 @@ interface Item {
   title: string;
   href: string;
 }
-
-const $route = useRoute();
 
 const sidebarNavItems: Item[] = [
   {
