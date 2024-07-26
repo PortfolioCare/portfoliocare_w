@@ -472,7 +472,6 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
                       alt="Product image"
                       class="aspect-square w-full rounded-md object-cover"
                       height="300"
-                      src="/placeholder.svg"
                       width="300"
                     />
                     <div class="grid grid-cols-3 gap-2">
@@ -481,7 +480,6 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
                           alt="Product image"
                           class="aspect-square w-full rounded-md object-cover"
                           height="84"
-                          src="/placeholder.svg"
                           width="84"
                         />
                       </button>
@@ -490,7 +488,6 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
                           alt="Product image"
                           class="aspect-square w-full rounded-md object-cover"
                           height="84"
-                          src="/placeholder.svg"
                           width="84"
                         />
                       </button>

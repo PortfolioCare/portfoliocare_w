@@ -46,7 +46,6 @@ import { Label } from "@/components/ui/label";
     </div>
     <div class="hidden bg-muted lg:block">
       <img
-        src="/placeholder.svg"
         alt="Image"
         width="1920"
         height="1080"

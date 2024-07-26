@@ -6,6 +6,56 @@ const routes = [
     redirect: "/examples",
     children: [
       {
+        path: "block",
+        redirect: "/block/Authentication01",
+        children: [
+          {
+            path: "Authentication01",
+            component: () => import("@/components/block/Authentication01.vue"),
+          },
+          {
+            path: "Authentication02",
+            component: () => import("@/components/block/Authentication02.vue"),
+          },
+          {
+            path: "Authentication03",
+            component: () => import("@/components/block/Authentication03.vue"),
+          },
+          {
+            path: "Authentication04",
+            component: () => import("@/components/block/Authentication04.vue"),
+          },
+          {
+            path: "Dashboard01",
+            component: () => import("@/components/block/Dashboard01.vue"),
+          },
+          {
+            path: "Dashboard02",
+            component: () => import("@/components/block/Dashboard02.vue"),
+          },
+          {
+            path: "Dashboard03",
+            component: () => import("@/components/block/Dashboard03.vue"),
+          },
+          {
+            path: "Dashboard04",
+            component: () => import("@/components/block/Dashboard04.vue"),
+          },
+          {
+            path: "Dashboard05",
+            component: () => import("@/components/block/Dashboard05.vue"),
+          },
+          {
+            path: "Dashboard06",
+            component: () => import("@/components/block/Dashboard06.vue"),
+          },
+          {
+            path: "Dashboard07",
+            component: () => import("@/components/block/Dashboard07.vue"),
+          },
+        ],
+      },
+      {
         path: "examples",
         redirect: "/examples/mail",
         children: [
