@@ -21,6 +21,22 @@ const routes = [
         path: "dashboard",
         component: () => import("@/views/dashboard/Example.vue"),
       },
+      {
+        path: "forms",
+        component: () => import("@/views/forms/Example.vue"),
+      },
+      {
+        path: "music",
+        component: () => import("@/views/music/Example.vue"),
+      },
+      {
+        path: "playground",
+        component: () => import("@/views/playground/Example.vue"),
+      },
+      {
+        path: "tasks",
+        component: () => import("@/views/tasks/Example.vue"),
+      },
     ],
   },
 ];
