@@ -1,14 +1,10 @@
 <script setup lang="ts">
-import { h } from 'vue'
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
-import {
-  PinInput,
-  PinInputGroup,
-  PinInputInput,
-} from '@/lib/registry/default/ui/pin-input'
-import { Button } from '@/lib/registry/default/ui/button'
+import { h } from "vue";
+import { useForm } from "vee-validate";
+import { toTypedSchema } from "@vee-validate/zod";
+import * as z from "zod";
+import { PinInput, PinInputGroup, PinInputInput } from "@/components/ui/pin-input";
+import { Button } from "@/components/ui/button";
 import {
   FormControl,
   FormDescription,
@@ -16,28 +12,34 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/lib/registry/default/ui/form'
-import { toast } from '@/lib/registry/default/ui/toast'
+} from "@/components/ui/form";
+import { toast } from "@/components/ui/toast";
 
-const formSchema = toTypedSchema(z.object({
-  pin: z.array(z.coerce.string()).length(5, { message: 'Invalid input' }),
-}))
+const formSchema = toTypedSchema(
+  z.object({
+    pin: z.array(z.coerce.string()).length(5, { message: "Invalid input" }),
+  })
+);
 
 const { handleSubmit, setFieldValue } = useForm({
   validationSchema: formSchema,
   initialValues: {
-    pin: ['1', '2', '3'],
+    pin: ["1", "2", "3"],
   },
-})
+});
 
 const onSubmit = handleSubmit(({ pin }) => {
   toast({
-    title: 'You submitted the following values:',
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(pin.join(''), null, 2))),
-  })
-})
+    title: "You submitted the following values:",
+    description: h(
+      "pre",
+      { class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" },
+      h("code", { class: "text-white" }, JSON.stringify(pin.join(""), null, 2))
+    ),
+  });
+});
 
-const handleComplete = (e: string[]) => console.log(e.join(''))
+const handleComplete = (e: string[]) => console.log(e.join(""));
 </script>
 
 <template>
@@ -55,16 +57,14 @@ const handleComplete = (e: string[]) => console.log(e.join(''))
             type="number"
             :name="componentField.name"
             @complete="handleComplete"
-            @update:model-value="(arrStr) => {
-              setFieldValue('pin', arrStr.filter(Boolean))
-            }"
+            @update:model-value="
+              (arrStr) => {
+                setFieldValue('pin', arrStr.filter(Boolean));
+              }
+            "
           >
             <PinInputGroup>
-              <PinInputInput
-                v-for="(id, index) in 5"
-                :key="id"
-                :index="index"
-              />
+              <PinInputInput v-for="(id, index) in 5" :key="id" :index="index" />
             </PinInputGroup>
           </PinInput>
         </FormControl>

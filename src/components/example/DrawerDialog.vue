@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { createReusableTemplate, useMediaQuery } from '@vueuse/core'
-import { Button } from '@/lib/registry/default/ui/button'
+import { ref } from "vue";
+import { createReusableTemplate, useMediaQuery } from "@vueuse/core";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -9,7 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/lib/registry/default/ui/dialog'
+} from "@/components/ui/dialog";
 import {
   Drawer,
   DrawerClose,
@@ -19,15 +19,15 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from '@/lib/registry/default/ui/drawer'
-import { Label } from '@/lib/registry/default/ui/label'
-import { Input } from '@/lib/registry/default/ui/input'
+} from "@/components/ui/drawer";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 
 // Reuse `form` section
-const [UseTemplate, GridForm] = createReusableTemplate()
-const isDesktop = useMediaQuery('(min-width: 768px)')
+const [UseTemplate, GridForm] = createReusableTemplate();
+const isDesktop = useMediaQuery("(min-width: 768px)");
 
-const isOpen = ref(false)
+const isOpen = ref(false);
 </script>
 
 <template>
@@ -41,17 +41,13 @@ const isOpen = ref(false)
         <Label html-for="username">Username</Label>
         <Input id="username" default-value="@shadcn" />
       </div>
-      <Button type="submit">
-        Save changes
-      </Button>
+      <Button type="submit"> Save changes </Button>
     </form>
   </UseTemplate>
 
   <Dialog v-if="isDesktop" v-model:open="isOpen">
     <DialogTrigger as-child>
-      <Button variant="outline">
-        Edit Profile
-      </Button>
+      <Button variant="outline"> Edit Profile </Button>
     </DialogTrigger>
     <DialogContent class="sm:max-w-[425px]">
       <DialogHeader>
@@ -66,9 +62,7 @@ const isOpen = ref(false)
 
   <Drawer v-else v-model:open="isOpen">
     <DrawerTrigger as-child>
-      <Button variant="outline">
-        Edit Profile
-      </Button>
+      <Button variant="outline"> Edit Profile </Button>
     </DrawerTrigger>
     <DrawerContent>
       <DrawerHeader class="text-left">
@@ -80,9 +74,7 @@ const isOpen = ref(false)
       <GridForm />
       <DrawerFooter class="pt-2">
         <DrawerClose as-child>
-          <Button variant="outline">
-            Cancel
-          </Button>
+          <Button variant="outline"> Cancel </Button>
         </DrawerClose>
       </DrawerFooter>
     </DrawerContent>

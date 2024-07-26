@@ -1,26 +1,29 @@
 <script lang="ts">
-export const description
-  = 'A simple login form with email and password. The submit button says \'Sign in\'.'
-export const iframeHeight = '600px'
-export const containerClass = 'w-full h-screen flex items-center justify-center px-4'
+export const description =
+  "A simple login form with email and password. The submit button says 'Sign in'.";
+export const iframeHeight = "600px";
+export const containerClass = "w-full h-screen flex items-center justify-center px-4";
 </script>
 
 <script setup lang="ts">
-import { Button } from '@/lib/registry/default/ui/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/lib/registry/default/ui/card'
-import { Input } from '@/lib/registry/default/ui/input'
-import { Label } from '@/lib/registry/default/ui/label'
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 </script>
 
 <template>
   <Card class="w-full max-w-sm">
     <CardHeader>
-      <CardTitle class="text-2xl">
-        Login
-      </CardTitle>
-      <CardDescription>
-        Enter your email below to login to your account.
-      </CardDescription>
+      <CardTitle class="text-2xl"> Login </CardTitle>
+      <CardDescription> Enter your email below to login to your account. </CardDescription>
     </CardHeader>
     <CardContent class="grid gap-4">
       <div class="grid gap-2">
@@ -33,9 +36,7 @@ import { Label } from '@/lib/registry/default/ui/label'
       </div>
     </CardContent>
     <CardFooter>
-      <Button class="w-full">
-        Sign in
-      </Button>
+      <Button class="w-full"> Sign in </Button>
     </CardFooter>
   </Card>
 </template>

@@ -7,7 +7,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/lib/registry/default/ui/breadcrumb'
+} from "@/components/ui/breadcrumb";
 </script>
 
 <template>
@@ -15,9 +15,7 @@ import {
     <BreadcrumbList>
       <BreadcrumbItem>
         <BreadcrumbLink as-child>
-          <a href="/">
-            Home
-          </a>
+          <a href="/"> Home </a>
         </BreadcrumbLink>
       </BreadcrumbItem>
       <BreadcrumbSeparator />
@@ -27,9 +25,7 @@ import {
       <BreadcrumbSeparator />
       <BreadcrumbItem>
         <BreadcrumbLink as-child>
-          <a href="/docs/components/accordion.html">
-            Components
-          </a>
+          <a href="/docs/components/accordion.html"> Components </a>
         </BreadcrumbLink>
       </BreadcrumbItem>
       <BreadcrumbSeparator />

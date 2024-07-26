@@ -1,4 +1,4 @@
-<script setup lang='ts'>
+<script setup lang="ts">
 import {
   Card,
   CardContent,
@@ -6,17 +6,17 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/lib/registry/default/ui/card'
+} from "@/components/ui/card";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/lib/registry/default/ui/select'
-import { Input } from '@/lib/registry/default/ui/input'
-import { Label } from '@/lib/registry/default/ui/label'
-import { Button } from '@/lib/registry/default/ui/button'
+} from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
 </script>
 
 <template>
@@ -39,18 +39,10 @@ import { Button } from '@/lib/registry/default/ui/button'
                 <SelectValue placeholder="Select" />
               </SelectTrigger>
               <SelectContent position="popper">
-                <SelectItem value="nuxt">
-                  Nuxt
-                </SelectItem>
-                <SelectItem value="next">
-                  Next.js
-                </SelectItem>
-                <SelectItem value="sveltekit">
-                  SvelteKit
-                </SelectItem>
-                <SelectItem value="astro">
-                  Astro
-                </SelectItem>
+                <SelectItem value="nuxt"> Nuxt </SelectItem>
+                <SelectItem value="next"> Next.js </SelectItem>
+                <SelectItem value="sveltekit"> SvelteKit </SelectItem>
+                <SelectItem value="astro"> Astro </SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -58,9 +50,7 @@ import { Button } from '@/lib/registry/default/ui/button'
       </form>
     </CardContent>
     <CardFooter class="flex justify-between px-6 pb-6">
-      <Button variant="outline">
-        Cancel
-      </Button>
+      <Button variant="outline"> Cancel </Button>
       <Button>Deploy</Button>
     </CardFooter>
   </Card>

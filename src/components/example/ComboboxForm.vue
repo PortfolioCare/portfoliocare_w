@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { h } from 'vue'
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
+import { h } from "vue";
+import { useForm } from "vee-validate";
+import { toTypedSchema } from "@vee-validate/zod";
+import * as z from "zod";
 
-import { Check, ChevronsUpDown } from 'lucide-vue-next'
-import { cn } from '@/lib/utils'
-import { Button } from '@/lib/registry/default/ui/button'
+import { Check, ChevronsUpDown } from "lucide-vue-next";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import {
   Command,
   CommandEmpty,
@@ -14,7 +14,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@/lib/registry/default/ui/command'
+} from "@/components/ui/command";
 import {
   FormControl,
   FormDescription,
@@ -22,42 +22,44 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/lib/registry/default/ui/form'
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/lib/registry/default/ui/popover'
-import { toast } from '@/lib/registry/default/ui/toast'
+} from "@/components/ui/form";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { toast } from "@/components/ui/toast";
 
 const languages = [
-  { label: 'English', value: 'en' },
-  { label: 'French', value: 'fr' },
-  { label: 'German', value: 'de' },
-  { label: 'Spanish', value: 'es' },
-  { label: 'Portuguese', value: 'pt' },
-  { label: 'Russian', value: 'ru' },
-  { label: 'Japanese', value: 'ja' },
-  { label: 'Korean', value: 'ko' },
-  { label: 'Chinese', value: 'zh' },
-]
+  { label: "English", value: "en" },
+  { label: "French", value: "fr" },
+  { label: "German", value: "de" },
+  { label: "Spanish", value: "es" },
+  { label: "Portuguese", value: "pt" },
+  { label: "Russian", value: "ru" },
+  { label: "Japanese", value: "ja" },
+  { label: "Korean", value: "ko" },
+  { label: "Chinese", value: "zh" },
+];
 
-const formSchema = toTypedSchema(z.object({
-  language: z.string({
-    required_error: 'Please select a language.',
-  }),
-}))
+const formSchema = toTypedSchema(
+  z.object({
+    language: z.string({
+      required_error: "Please select a language.",
+    }),
+  })
+);
 
 const { handleSubmit, setFieldValue, values } = useForm({
   validationSchema: formSchema,
-})
+});
 
 const onSubmit = handleSubmit((values) => {
   toast({
-    title: 'You submitted the following values:',
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
-  })
-})
+    title: "You submitted the following values:",
+    description: h(
+      "pre",
+      { class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" },
+      h("code", { class: "text-white" }, JSON.stringify(values, null, 2))
+    ),
+  });
+});
 </script>
 
 <template>
@@ -71,11 +73,15 @@ const onSubmit = handleSubmit((values) => {
               <Button
                 variant="outline"
                 role="combobox"
-                :class="cn('w-[200px] justify-between', !values.language && 'text-muted-foreground')"
+                :class="
+                  cn('w-[200px] justify-between', !values.language && 'text-muted-foreground')
+                "
               >
-                {{ values.language ? languages.find(
-                  (language) => language.value === values.language,
-                )?.label : 'Select language...' }}
+                {{
+                  values.language
+                    ? languages.find((language) => language.value === values.language)?.label
+                    : "Select language..."
+                }}
                 <ChevronsUpDown class="ml-2 h-4 w-4 shrink-0 opacity-50" />
               </Button>
             </FormControl>
@@ -90,12 +96,19 @@ const onSubmit = handleSubmit((values) => {
                     v-for="language in languages"
                     :key="language.value"
                     :value="language.label"
-                    @select="() => {
-                      setFieldValue('language', language.value)
-                    }"
+                    @select="
+                      () => {
+                        setFieldValue('language', language.value);
+                      }
+                    "
                   >
                     <Check
-                      :class="cn('mr-2 h-4 w-4', language.value === values.language ? 'opacity-100' : 'opacity-0')"
+                      :class="
+                        cn(
+                          'mr-2 h-4 w-4',
+                          language.value === values.language ? 'opacity-100' : 'opacity-0'
+                        )
+                      "
                     />
                     {{ language.label }}
                   </CommandItem>
@@ -111,8 +124,6 @@ const onSubmit = handleSubmit((values) => {
       </FormItem>
     </FormField>
 
-    <Button type="submit">
-      Submit
-    </Button>
+    <Button type="submit"> Submit </Button>
   </form>
 </template>

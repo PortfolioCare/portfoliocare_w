@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { h } from 'vue'
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
+import { h } from "vue";
+import { useForm } from "vee-validate";
+import { toTypedSchema } from "@vee-validate/zod";
+import * as z from "zod";
 
-import { Button } from '@/lib/registry/default/ui/button'
+import { Button } from "@/components/ui/button";
 import {
   FormControl,
   FormDescription,
@@ -12,29 +12,33 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/lib/registry/default/ui/form'
-import { Slider } from '@/lib/registry/default/ui/slider'
-import { toast } from '@/lib/registry/default/ui/toast'
+} from "@/components/ui/form";
+import { Slider } from "@/components/ui/slider";
+import { toast } from "@/components/ui/toast";
 
-const formSchema = toTypedSchema(z.object({
-  duration: z.array(
-    z.number().min(0).max(60),
-  ),
-}))
+const formSchema = toTypedSchema(
+  z.object({
+    duration: z.array(z.number().min(0).max(60)),
+  })
+);
 
 const { handleSubmit } = useForm({
   validationSchema: formSchema,
   initialValues: {
     duration: [30],
   },
-})
+});
 
 const onSubmit = handleSubmit((values) => {
   toast({
-    title: 'You submitted the following values:',
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
-  })
-})
+    title: "You submitted the following values:",
+    description: h(
+      "pre",
+      { class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" },
+      h("code", { class: "text-white" }, JSON.stringify(values, null, 2))
+    ),
+  });
+});
 </script>
 
 <template>
@@ -43,13 +47,7 @@ const onSubmit = handleSubmit((values) => {
       <FormItem>
         <FormLabel>Duration</FormLabel>
         <FormControl>
-          <Slider
-            v-bind="componentField"
-            :default-value="[30]"
-            :max="100"
-            :min="0"
-            :step="5"
-          />
+          <Slider v-bind="componentField" :default-value="[30]" :max="100" :min="0" :step="5" />
           <FormDescription class="flex justify-between">
             <span>How many minutes are you available?</span>
             <span>{{ value?.[0] }} min</span>
@@ -59,8 +57,6 @@ const onSubmit = handleSubmit((values) => {
       </FormItem>
     </FormField>
 
-    <Button type="submit">
-      Submit
-    </Button>
+    <Button type="submit"> Submit </Button>
   </form>
 </template>

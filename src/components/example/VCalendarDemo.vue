@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { Calendar } from '@/lib/registry/default/ui/v-calendar'
+import { ref } from "vue";
+import { Calendar } from "@/components/ui/v-calendar";
 
-const date = ref(new Date())
+const date = ref(new Date());
 </script>
 
 <template>

@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { h } from 'vue'
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
-import { vAutoAnimate } from '@formkit/auto-animate/vue'
+import { h } from "vue";
+import { useForm } from "vee-validate";
+import { toTypedSchema } from "@vee-validate/zod";
+import * as z from "zod";
+import { vAutoAnimate } from "@formkit/auto-animate/vue";
 
-import { Button } from '@/lib/registry/default/ui/button'
+import { Button } from "@/components/ui/button";
 import {
   FormControl,
   FormDescription,
@@ -13,24 +13,30 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/lib/registry/default/ui/form'
-import { Input } from '@/lib/registry/default/ui/input'
-import { toast } from '@/lib/registry/default/ui/toast'
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { toast } from "@/components/ui/toast";
 
-const formSchema = toTypedSchema(z.object({
-  username: z.string().min(2).max(50),
-}))
+const formSchema = toTypedSchema(
+  z.object({
+    username: z.string().min(2).max(50),
+  })
+);
 
 const { handleSubmit } = useForm({
   validationSchema: formSchema,
-})
+});
 
 const onSubmit = handleSubmit((values) => {
   toast({
-    title: 'You submitted the following values:',
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
-  })
-})
+    title: "You submitted the following values:",
+    description: h(
+      "pre",
+      { class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" },
+      h("code", { class: "text-white" }, JSON.stringify(values, null, 2))
+    ),
+  });
+});
 </script>
 
 <template>
@@ -41,14 +47,10 @@ const onSubmit = handleSubmit((values) => {
         <FormControl>
           <Input type="text" placeholder="shadcn" v-bind="componentField" />
         </FormControl>
-        <FormDescription>
-          This is your public display name.
-        </FormDescription>
+        <FormDescription> This is your public display name. </FormDescription>
         <FormMessage />
       </FormItem>
     </FormField>
-    <Button type="submit">
-      Submit
-    </Button>
+    <Button type="submit"> Submit </Button>
   </form>
 </template>

@@ -1,36 +1,36 @@
 <script setup lang="ts">
-import { h } from 'vue'
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
+import { h } from "vue";
+import { useForm } from "vee-validate";
+import { toTypedSchema } from "@vee-validate/zod";
+import * as z from "zod";
 
-import { Button } from '@/lib/registry/default/ui/button'
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/lib/registry/default/ui/form'
-import { RadioGroup, RadioGroupItem } from '@/lib/registry/default/ui/radio-group'
-import { toast } from '@/lib/registry/default/ui/toast'
+import { Button } from "@/components/ui/button";
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { toast } from "@/components/ui/toast";
 
-const formSchema = toTypedSchema(z.object({
-  type: z.enum(['all', 'mentions', 'none'], {
-    required_error: 'You need to select a notification type.',
-  }),
-}))
+const formSchema = toTypedSchema(
+  z.object({
+    type: z.enum(["all", "mentions", "none"], {
+      required_error: "You need to select a notification type.",
+    }),
+  })
+);
 
 const { handleSubmit } = useForm({
   validationSchema: formSchema,
-})
+});
 
 const onSubmit = handleSubmit((values) => {
   toast({
-    title: 'You submitted the following values:',
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
-  })
-})
+    title: "You submitted the following values:",
+    description: h(
+      "pre",
+      { class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" },
+      h("code", { class: "text-white" }, JSON.stringify(values, null, 2))
+    ),
+  });
+});
 </script>
 
 <template>
@@ -40,33 +40,24 @@ const onSubmit = handleSubmit((values) => {
         <FormLabel>Notify me about...</FormLabel>
 
         <FormControl>
-          <RadioGroup
-            class="flex flex-col space-y-1"
-            v-bind="componentField"
-          >
+          <RadioGroup class="flex flex-col space-y-1" v-bind="componentField">
             <FormItem class="flex items-center space-y-0 gap-x-3">
               <FormControl>
                 <RadioGroupItem value="all" />
               </FormControl>
-              <FormLabel class="font-normal">
-                All new messages
-              </FormLabel>
+              <FormLabel class="font-normal"> All new messages </FormLabel>
             </FormItem>
             <FormItem class="flex items-center space-y-0 gap-x-3">
               <FormControl>
                 <RadioGroupItem value="mentions" />
               </FormControl>
-              <FormLabel class="font-normal">
-                Direct messages and mentions
-              </FormLabel>
+              <FormLabel class="font-normal"> Direct messages and mentions </FormLabel>
             </FormItem>
             <FormItem class="flex items-center space-y-0 gap-x-3">
               <FormControl>
                 <RadioGroupItem value="none" />
               </FormControl>
-              <FormLabel class="font-normal">
-                Nothing
-              </FormLabel>
+              <FormLabel class="font-normal"> Nothing </FormLabel>
             </FormItem>
           </RadioGroup>
         </FormControl>
@@ -74,8 +65,6 @@ const onSubmit = handleSubmit((values) => {
       </FormItem>
     </FormField>
 
-    <Button type="submit">
-      Submit
-    </Button>
+    <Button type="submit"> Submit </Button>
   </form>
 </template>

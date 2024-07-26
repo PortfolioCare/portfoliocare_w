@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { h } from 'vue'
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
+import { h } from "vue";
+import { useForm } from "vee-validate";
+import { toTypedSchema } from "@vee-validate/zod";
+import * as z from "zod";
 
-import { Button } from '@/lib/registry/default/ui/button'
+import { Button } from "@/components/ui/button";
 import {
   FormControl,
   FormDescription,
@@ -12,7 +12,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/lib/registry/default/ui/form'
+} from "@/components/ui/form";
 import {
   Select,
   SelectContent,
@@ -20,27 +20,33 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/lib/registry/default/ui/select'
-import { toast } from '@/lib/registry/default/ui/toast'
+} from "@/components/ui/select";
+import { toast } from "@/components/ui/toast";
 
-const formSchema = toTypedSchema(z.object({
-  email: z
-    .string({
-      required_error: 'Please select an email to display.',
-    })
-    .email(),
-}))
+const formSchema = toTypedSchema(
+  z.object({
+    email: z
+      .string({
+        required_error: "Please select an email to display.",
+      })
+      .email(),
+  })
+);
 
 const { handleSubmit } = useForm({
   validationSchema: formSchema,
-})
+});
 
 const onSubmit = handleSubmit((values) => {
   toast({
-    title: 'You submitted the following values:',
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
-  })
-})
+    title: "You submitted the following values:",
+    description: h(
+      "pre",
+      { class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" },
+      h("code", { class: "text-white" }, JSON.stringify(values, null, 2))
+    ),
+  });
+});
 </script>
 
 <template>
@@ -57,15 +63,9 @@ const onSubmit = handleSubmit((values) => {
           </FormControl>
           <SelectContent>
             <SelectGroup>
-              <SelectItem value="m@example.com">
-                m@example.com
-              </SelectItem>
-              <SelectItem value="m@google.com">
-                m@google.com
-              </SelectItem>
-              <SelectItem value="m@support.com">
-                m@support.com
-              </SelectItem>
+              <SelectItem value="m@example.com"> m@example.com </SelectItem>
+              <SelectItem value="m@google.com"> m@google.com </SelectItem>
+              <SelectItem value="m@support.com"> m@support.com </SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
@@ -77,8 +77,6 @@ const onSubmit = handleSubmit((values) => {
       </FormItem>
     </FormField>
 
-    <Button type="submit">
-      Submit
-    </Button>
+    <Button type="submit"> Submit </Button>
   </form>
 </template>

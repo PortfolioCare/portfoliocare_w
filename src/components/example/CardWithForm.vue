@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button } from '@/lib/registry/default/ui/button'
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -7,16 +7,16 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/lib/registry/default/ui/card'
-import { Input } from '@/lib/registry/default/ui/input'
-import { Label } from '@/lib/registry/default/ui/label'
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/lib/registry/default/ui/select'
+} from "@/components/ui/select";
 </script>
 
 <template>
@@ -39,18 +39,10 @@ import {
                 <SelectValue placeholder="Select" />
               </SelectTrigger>
               <SelectContent position="popper">
-                <SelectItem value="next">
-                  Next.js
-                </SelectItem>
-                <SelectItem value="sveltekit">
-                  SvelteKit
-                </SelectItem>
-                <SelectItem value="astro">
-                  Astro
-                </SelectItem>
-                <SelectItem value="nuxt">
-                  Nuxt
-                </SelectItem>
+                <SelectItem value="next"> Next.js </SelectItem>
+                <SelectItem value="sveltekit"> SvelteKit </SelectItem>
+                <SelectItem value="astro"> Astro </SelectItem>
+                <SelectItem value="nuxt"> Nuxt </SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -58,9 +50,7 @@ import {
       </form>
     </CardContent>
     <CardFooter class="flex justify-between">
-      <Button variant="outline">
-        Cancel
-      </Button>
+      <Button variant="outline"> Cancel </Button>
       <Button>Deploy</Button>
     </CardFooter>
   </Card>

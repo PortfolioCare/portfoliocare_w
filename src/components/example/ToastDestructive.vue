@@ -1,26 +1,33 @@
 <script setup lang="ts">
-import { h } from 'vue'
-import { Button } from '@/lib/registry/default/ui/button'
-import { useToast } from '@/lib/registry/default/ui/toast/use-toast'
-import { ToastAction } from '@/lib/registry/default/ui/toast'
+import { h } from "vue";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/toast/use-toast";
+import { ToastAction } from "@/components/ui/toast";
 
-const { toast } = useToast()
+const { toast } = useToast();
 </script>
 
 <template>
   <Button
-    variant="outline" @click="() => {
-      toast({
-        title: 'Uh oh! Something went wrong.',
-        description: 'There was a problem with your request.',
-        variant: 'destructive',
-        action: h(ToastAction, {
-          altText: 'Try again',
-        }, {
-          default: () => 'Try again',
-        }),
-      });
-    }"
+    variant="outline"
+    @click="
+      () => {
+        toast({
+          title: 'Uh oh! Something went wrong.',
+          description: 'There was a problem with your request.',
+          variant: 'destructive',
+          action: h(
+            ToastAction,
+            {
+              altText: 'Try again',
+            },
+            {
+              default: () => 'Try again',
+            }
+          ),
+        });
+      }
+    "
   >
     Show Toast
   </Button>

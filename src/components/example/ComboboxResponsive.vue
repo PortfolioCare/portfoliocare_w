@@ -1,48 +1,55 @@
 <script lang="ts" setup>
-import { createReusableTemplate, useMediaQuery } from '@vueuse/core'
-import { ref } from 'vue'
-import { Button } from '@/lib/registry/default/ui/button'
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/lib/registry/default/ui/command'
-import { Drawer, DrawerContent, DrawerTrigger } from '@/lib/registry/default/ui/drawer'
-import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/default/ui/popover'
+import { createReusableTemplate, useMediaQuery } from "@vueuse/core";
+import { ref } from "vue";
+import { Button } from "@/components/ui/button";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 interface Status {
-  value: string
-  label: string
+  value: string;
+  label: string;
 }
 
 const statuses: Status[] = [
   {
-    value: 'backlog',
-    label: 'Backlog',
+    value: "backlog",
+    label: "Backlog",
   },
   {
-    value: 'todo',
-    label: 'Todo',
+    value: "todo",
+    label: "Todo",
   },
   {
-    value: 'in progress',
-    label: 'In Progress',
+    value: "in progress",
+    label: "In Progress",
   },
   {
-    value: 'done',
-    label: 'Done',
+    value: "done",
+    label: "Done",
   },
   {
-    value: 'canceled',
-    label: 'Canceled',
+    value: "canceled",
+    label: "Canceled",
   },
-]
+];
 
-const [UseTemplate, StatusList] = createReusableTemplate()
-const isDesktop = useMediaQuery('(min-width: 768px)')
+const [UseTemplate, StatusList] = createReusableTemplate();
+const isDesktop = useMediaQuery("(min-width: 768px)");
 
-const isOpen = ref(false)
-const selectedStatus = ref<Status | null>(null)
+const isOpen = ref(false);
+const selectedStatus = ref<Status | null>(null);
 
 function onStatusSelect(status: Status) {
-  selectedStatus.value = status
-  isOpen.value = false
+  selectedStatus.value = status;
+  isOpen.value = false;
 }
 </script>
 
@@ -78,7 +85,7 @@ function onStatusSelect(status: Status) {
       </PopoverContent>
     </Popover>
 
-    <Drawer v-else :open="isOpen" @update:open="(newOpenValue) => isOpen = newOpenValue">
+    <Drawer v-else :open="isOpen" @update:open="(newOpenValue) => (isOpen = newOpenValue)">
       <DrawerTrigger as-child>
         <Button variant="outline" class="w-[150px] justify-start">
           {{ selectedStatus ? selectedStatus.label : "+ Set status" }}

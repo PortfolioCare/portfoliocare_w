@@ -1,17 +1,9 @@
 <script setup lang="ts">
-import {
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
-} from '@/lib/registry/default/ui/resizable'
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
 </script>
 
 <template>
-  <ResizablePanelGroup
-    id="demo-group-1"
-    direction="horizontal"
-    class="max-w-md rounded-lg border"
-  >
+  <ResizablePanelGroup id="demo-group-1" direction="horizontal" class="max-w-md rounded-lg border">
     <ResizablePanel id="demo-panel-1" :default-size="50">
       <div class="flex h-[200px] items-center justify-center p-6">
         <span class="font-semibold">One</span>

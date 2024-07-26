@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import { Badge } from '@/lib/registry/default/ui/badge'
+import { Badge } from "@/components/ui/badge";
 </script>
 
 <template>
-  <Badge variant="secondary">
-    Secondary
-  </Badge>
+  <Badge variant="secondary"> Secondary </Badge>
 </template>

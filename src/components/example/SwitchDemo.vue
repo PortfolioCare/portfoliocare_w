@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Label } from '@/lib/registry/default/ui/label'
-import { Switch } from '@/lib/registry/default/ui/switch'
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
 </script>
 
 <template>

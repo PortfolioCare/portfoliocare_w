@@ -1,7 +1,8 @@
 <script lang="ts">
-export const description = 'A product edit page. The product edit page has a form to edit the product details, stock, product category, product status, and product images. The product edit page has a sidebar navigation and a main content area. The main content area has a form to edit the product details, stock, product category, product status, and product images. The sidebar navigation has links to product details, stock, product category, product status, and product images.'
-export const iframeHeight = '1200px'
-export const containerClass = 'w-full h-full'
+export const description =
+  "A product edit page. The product edit page has a form to edit the product details, stock, product category, product status, and product images. The product edit page has a sidebar navigation and a main content area. The main content area has a form to edit the product details, stock, product category, product status, and product images. The sidebar navigation has links to product details, stock, product category, product status, and product images.";
+export const iframeHeight = "1200px";
+export const containerClass = "w-full h-full";
 </script>
 
 <script setup lang="ts">
@@ -19,16 +20,30 @@ import {
   ShoppingCart,
   Upload,
   Users2,
-} from 'lucide-vue-next'
+} from "lucide-vue-next";
 
-import { Badge } from '@/lib/registry/default/ui/badge'
-import { Button } from '@/lib/registry/default/ui/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/lib/registry/default/ui/card'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/lib/registry/default/ui/dropdown-menu'
-import { Input } from '@/lib/registry/default/ui/input'
-import { Textarea } from '@/lib/registry/default/ui/textarea'
-import { Label } from '@/lib/registry/default/ui/label'
-import { ToggleGroup, ToggleGroupItem } from '@/lib/registry/default/ui/toggle-group'
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -36,8 +51,8 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/lib/registry/default/ui/breadcrumb'
-import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/default/ui/sheet'
+} from "@/components/ui/breadcrumb";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   Table,
   TableBody,
@@ -45,20 +60,15 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/lib/registry/default/ui/table'
+} from "@/components/ui/table";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/lib/registry/default/ui/select'
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/lib/registry/default/ui/tooltip'
+} from "@/components/ui/select";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 </script>
 
 <template>
@@ -83,9 +93,7 @@ import {
                 <span class="sr-only">Dashboard</span>
               </a>
             </TooltipTrigger>
-            <TooltipContent side="right">
-              Dashboard
-            </TooltipContent>
+            <TooltipContent side="right"> Dashboard </TooltipContent>
           </Tooltip>
         </TooltipProvider>
         <TooltipProvider>
@@ -99,9 +107,7 @@ import {
                 <span class="sr-only">Orders</span>
               </a>
             </TooltipTrigger>
-            <TooltipContent side="right">
-              Orders
-            </TooltipContent>
+            <TooltipContent side="right"> Orders </TooltipContent>
           </Tooltip>
         </TooltipProvider>
         <TooltipProvider>
@@ -115,9 +121,7 @@ import {
                 <span class="sr-only">Products</span>
               </a>
             </TooltipTrigger>
-            <TooltipContent side="right">
-              Products
-            </TooltipContent>
+            <TooltipContent side="right"> Products </TooltipContent>
           </Tooltip>
         </TooltipProvider>
         <TooltipProvider>
@@ -131,9 +135,7 @@ import {
                 <span class="sr-only">Customers</span>
               </a>
             </TooltipTrigger>
-            <TooltipContent side="right">
-              Customers
-            </TooltipContent>
+            <TooltipContent side="right"> Customers </TooltipContent>
           </Tooltip>
         </TooltipProvider>
         <TooltipProvider>
@@ -147,9 +149,7 @@ import {
                 <span class="sr-only">Analytics</span>
               </a>
             </TooltipTrigger>
-            <TooltipContent side="right">
-              Analytics
-            </TooltipContent>
+            <TooltipContent side="right"> Analytics </TooltipContent>
           </Tooltip>
         </TooltipProvider>
       </nav>
@@ -165,15 +165,15 @@ import {
                 <span class="sr-only">Settings</span>
               </a>
             </TooltipTrigger>
-            <TooltipContent side="right">
-              Settings
-            </TooltipContent>
+            <TooltipContent side="right"> Settings </TooltipContent>
           </Tooltip>
         </TooltipProvider>
       </nav>
     </aside>
     <div class="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
-      <header class="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
+      <header
+        class="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6"
+      >
         <Sheet>
           <SheetTrigger as-child>
             <Button size="icon" variant="outline" class="sm:hidden">
@@ -204,10 +204,7 @@ import {
                 <ShoppingCart class="h-5 w-5" />
                 Orders
               </a>
-              <a
-                href="#"
-                class="flex items-center gap-4 px-2.5 text-foreground"
-              >
+              <a href="#" class="flex items-center gap-4 px-2.5 text-foreground">
                 <Package class="h-5 w-5" />
                 Products
               </a>
@@ -279,19 +276,15 @@ import {
               <ChevronLeft class="h-4 w-4" />
               <span class="sr-only">Back</span>
             </Button>
-            <h1 class="flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
+            <h1
+              class="flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0"
+            >
               Pro Controller
             </h1>
-            <Badge variant="outline" class="ml-auto sm:ml-0">
-              In stock
-            </Badge>
+            <Badge variant="outline" class="ml-auto sm:ml-0"> In stock </Badge>
             <div class="hidden items-center gap-2 md:ml-auto md:flex">
-              <Button variant="outline" size="sm">
-                Discard
-              </Button>
-              <Button size="sm">
-                Save Product
-              </Button>
+              <Button variant="outline" size="sm"> Discard </Button>
+              <Button size="sm"> Save Product </Button>
             </div>
           </div>
           <div class="grid gap-4 md:grid-cols-[1fr_250px] lg:grid-cols-3 lg:gap-8">
@@ -336,140 +329,64 @@ import {
                   <Table>
                     <TableHeader>
                       <TableRow>
-                        <TableHead class="w-[100px]">
-                          SKU
-                        </TableHead>
+                        <TableHead class="w-[100px]"> SKU </TableHead>
                         <TableHead>Stock</TableHead>
                         <TableHead>Price</TableHead>
-                        <TableHead class="w-[100px]">
-                          Size
-                        </TableHead>
+                        <TableHead class="w-[100px]"> Size </TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
                       <TableRow>
-                        <TableCell class="font-semibold">
-                          GGPC-001
+                        <TableCell class="font-semibold"> GGPC-001 </TableCell>
+                        <TableCell>
+                          <Label for="stock-1" class="sr-only"> Stock </Label>
+                          <Input id="stock-1" type="number" default-value="100" />
                         </TableCell>
                         <TableCell>
-                          <Label for="stock-1" class="sr-only">
-                            Stock
-                          </Label>
-                          <Input
-                            id="stock-1"
-                            type="number"
-                            default-value="100"
-                          />
+                          <Label for="price-1" class="sr-only"> Price </Label>
+                          <Input id="price-1" type="number" default-value="99.99" />
                         </TableCell>
                         <TableCell>
-                          <Label for="price-1" class="sr-only">
-                            Price
-                          </Label>
-                          <Input
-                            id="price-1"
-                            type="number"
-                            default-value="99.99"
-                          />
-                        </TableCell>
-                        <TableCell>
-                          <ToggleGroup
-                            type="single"
-                            default-value="s"
-                            variant="outline"
-                          >
-                            <ToggleGroupItem value="s">
-                              S
-                            </ToggleGroupItem>
-                            <ToggleGroupItem value="m">
-                              M
-                            </ToggleGroupItem>
-                            <ToggleGroupItem value="l">
-                              L
-                            </ToggleGroupItem>
+                          <ToggleGroup type="single" default-value="s" variant="outline">
+                            <ToggleGroupItem value="s"> S </ToggleGroupItem>
+                            <ToggleGroupItem value="m"> M </ToggleGroupItem>
+                            <ToggleGroupItem value="l"> L </ToggleGroupItem>
                           </ToggleGroup>
                         </TableCell>
                       </TableRow>
                       <TableRow>
-                        <TableCell class="font-semibold">
-                          GGPC-002
+                        <TableCell class="font-semibold"> GGPC-002 </TableCell>
+                        <TableCell>
+                          <Label for="stock-2" class="sr-only"> Stock </Label>
+                          <Input id="stock-2" type="number" default-value="143" />
                         </TableCell>
                         <TableCell>
-                          <Label for="stock-2" class="sr-only">
-                            Stock
-                          </Label>
-                          <Input
-                            id="stock-2"
-                            type="number"
-                            default-value="143"
-                          />
+                          <Label for="price-2" class="sr-only"> Price </Label>
+                          <Input id="price-2" type="number" default-value="99.99" />
                         </TableCell>
                         <TableCell>
-                          <Label for="price-2" class="sr-only">
-                            Price
-                          </Label>
-                          <Input
-                            id="price-2"
-                            type="number"
-                            default-value="99.99"
-                          />
-                        </TableCell>
-                        <TableCell>
-                          <ToggleGroup
-                            type="single"
-                            default-value="m"
-                            variant="outline"
-                          >
-                            <ToggleGroupItem value="s">
-                              S
-                            </ToggleGroupItem>
-                            <ToggleGroupItem value="m">
-                              M
-                            </ToggleGroupItem>
-                            <ToggleGroupItem value="l">
-                              L
-                            </ToggleGroupItem>
+                          <ToggleGroup type="single" default-value="m" variant="outline">
+                            <ToggleGroupItem value="s"> S </ToggleGroupItem>
+                            <ToggleGroupItem value="m"> M </ToggleGroupItem>
+                            <ToggleGroupItem value="l"> L </ToggleGroupItem>
                           </ToggleGroup>
                         </TableCell>
                       </TableRow>
                       <TableRow>
-                        <TableCell class="font-semibold">
-                          GGPC-003
+                        <TableCell class="font-semibold"> GGPC-003 </TableCell>
+                        <TableCell>
+                          <Label for="stock-3" class="sr-only"> Stock </Label>
+                          <Input id="stock-3" type="number" default-value="32" />
                         </TableCell>
                         <TableCell>
-                          <Label for="stock-3" class="sr-only">
-                            Stock
-                          </Label>
-                          <Input
-                            id="stock-3"
-                            type="number"
-                            default-value="32"
-                          />
+                          <Label for="price-3" class="sr-only"> Stock </Label>
+                          <Input id="price-3" type="number" default-value="99.99" />
                         </TableCell>
                         <TableCell>
-                          <Label for="price-3" class="sr-only">
-                            Stock
-                          </Label>
-                          <Input
-                            id="price-3"
-                            type="number"
-                            default-value="99.99"
-                          />
-                        </TableCell>
-                        <TableCell>
-                          <ToggleGroup
-                            type="single"
-                            default-value="s"
-                            variant="outline"
-                          >
-                            <ToggleGroupItem value="s">
-                              S
-                            </ToggleGroupItem>
-                            <ToggleGroupItem value="m">
-                              M
-                            </ToggleGroupItem>
-                            <ToggleGroupItem value="l">
-                              L
-                            </ToggleGroupItem>
+                          <ToggleGroup type="single" default-value="s" variant="outline">
+                            <ToggleGroupItem value="s"> S </ToggleGroupItem>
+                            <ToggleGroupItem value="m"> M </ToggleGroupItem>
+                            <ToggleGroupItem value="l"> L </ToggleGroupItem>
                           </ToggleGroup>
                         </TableCell>
                       </TableRow>
@@ -492,46 +409,26 @@ import {
                     <div class="grid gap-3">
                       <Label for="category">Category</Label>
                       <Select>
-                        <SelectTrigger
-                          id="category"
-                          aria-label="Select category"
-                        >
+                        <SelectTrigger id="category" aria-label="Select category">
                           <SelectValue placeholder="Select category" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="clothing">
-                            Clothing
-                          </SelectItem>
-                          <SelectItem value="electronics">
-                            Electronics
-                          </SelectItem>
-                          <SelectItem value="accessories">
-                            Accessories
-                          </SelectItem>
+                          <SelectItem value="clothing"> Clothing </SelectItem>
+                          <SelectItem value="electronics"> Electronics </SelectItem>
+                          <SelectItem value="accessories"> Accessories </SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
                     <div class="grid gap-3">
-                      <Label for="subcategory">
-                        Subcategory (optional)
-                      </Label>
+                      <Label for="subcategory"> Subcategory (optional) </Label>
                       <Select>
-                        <SelectTrigger
-                          id="subcategory"
-                          aria-label="Select subcategory"
-                        >
+                        <SelectTrigger id="subcategory" aria-label="Select subcategory">
                           <SelectValue placeholder="Select subcategory" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="t-shirts">
-                            T-Shirts
-                          </SelectItem>
-                          <SelectItem value="hoodies">
-                            Hoodies
-                          </SelectItem>
-                          <SelectItem value="sweatshirts">
-                            Sweatshirts
-                          </SelectItem>
+                          <SelectItem value="t-shirts"> T-Shirts </SelectItem>
+                          <SelectItem value="hoodies"> Hoodies </SelectItem>
+                          <SelectItem value="sweatshirts"> Sweatshirts </SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -553,15 +450,9 @@ import {
                           <SelectValue placeholder="Select status" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="draft">
-                            Draft
-                          </SelectItem>
-                          <SelectItem value="published">
-                            Active
-                          </SelectItem>
-                          <SelectItem value="archived">
-                            Archived
-                          </SelectItem>
+                          <SelectItem value="draft"> Draft </SelectItem>
+                          <SelectItem value="published"> Active </SelectItem>
+                          <SelectItem value="archived"> Archived </SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -583,7 +474,7 @@ import {
                       height="300"
                       src="/placeholder.svg"
                       width="300"
-                    >
+                    />
                     <div class="grid grid-cols-3 gap-2">
                       <button>
                         <img
@@ -592,7 +483,7 @@ import {
                           height="84"
                           src="/placeholder.svg"
                           width="84"
-                        >
+                        />
                       </button>
                       <button>
                         <img
@@ -601,9 +492,11 @@ import {
                           height="84"
                           src="/placeholder.svg"
                           width="84"
-                        >
+                        />
                       </button>
-                      <button class="flex aspect-square w-full items-center justify-center rounded-md border border-dashed">
+                      <button
+                        class="flex aspect-square w-full items-center justify-center rounded-md border border-dashed"
+                      >
                         <Upload class="h-4 w-4 text-muted-foreground" />
                         <span class="sr-only">Upload</span>
                       </button>
@@ -620,20 +513,14 @@ import {
                 </CardHeader>
                 <CardContent>
                   <div />
-                  <Button size="sm" variant="secondary">
-                    Archive Product
-                  </Button>
+                  <Button size="sm" variant="secondary"> Archive Product </Button>
                 </CardContent>
               </Card>
             </div>
           </div>
           <div class="flex items-center justify-center gap-2 md:hidden">
-            <Button variant="outline" size="sm">
-              Discard
-            </Button>
-            <Button size="sm">
-              Save Product
-            </Button>
+            <Button variant="outline" size="sm"> Discard </Button>
+            <Button size="sm"> Save Product </Button>
           </div>
         </div>
       </main>

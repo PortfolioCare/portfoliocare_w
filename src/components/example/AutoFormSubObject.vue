@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import * as z from 'zod'
-import { h } from 'vue'
-import { Button } from '@/lib/registry/default/ui/button'
-import { toast } from '@/lib/registry/default/ui/toast'
-import { AutoForm } from '@/lib/registry/default/ui/auto-form'
+import * as z from "zod";
+import { h } from "vue";
+import { Button } from "@/components/ui/button";
+import { toast } from "@/components/ui/toast";
+import { AutoForm } from "@/components/ui/auto-form";
 
 const schema = z.object({
   subObject: z.object({
-    subField: z.string().optional().default('Sub Field'),
+    subField: z.string().optional().default("Sub Field"),
     numberField: z.number().optional().default(1),
 
     subSubObject: z
       .object({
-        subSubField: z.string().default('Sub Sub Field'),
+        subSubField: z.string().default("Sub Sub Field"),
       })
-      .describe('Sub Sub Object Description'),
+      .describe("Sub Sub Object Description"),
   }),
   optionalSubObject: z
     .object({
@@ -22,13 +22,17 @@ const schema = z.object({
       otherOptionalSubField: z.string(),
     })
     .optional(),
-})
+});
 
 function onSubmit(values: Record<string, any>) {
   toast({
-    title: 'You submitted the following values:',
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
-  })
+    title: "You submitted the following values:",
+    description: h(
+      "pre",
+      { class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" },
+      h("code", { class: "text-white" }, JSON.stringify(values, null, 2))
+    ),
+  });
 }
 </script>
 
@@ -47,8 +51,6 @@ function onSubmit(values: Record<string, any>) {
     }"
     @submit="onSubmit"
   >
-    <Button type="submit">
-      Submit
-    </Button>
+    <Button type="submit"> Submit </Button>
   </AutoForm>
 </template>

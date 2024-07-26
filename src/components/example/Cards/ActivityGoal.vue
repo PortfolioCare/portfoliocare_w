@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { Minus, Plus } from 'lucide-vue-next'
-import { VisStackedBar, VisXYContainer } from '@unovis/vue'
-import { Button } from '@/lib/registry/default/ui/button'
+import { ref } from "vue";
+import { Minus, Plus } from "lucide-vue-next";
+import { VisStackedBar, VisXYContainer } from "@unovis/vue";
+import { Button } from "@/components/ui/button";
 
 import {
   Card,
@@ -11,11 +11,11 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/lib/registry/default/ui/card'
+} from "@/components/ui/card";
 
-const goal = ref(350)
+const goal = ref(350);
 
-type Data = typeof data[number]
+type Data = (typeof data)[number];
 const data = [
   { goal: 400 },
   { goal: 300 },
@@ -30,15 +30,13 @@ const data = [
   { goal: 278 },
   { goal: 189 },
   { goal: 349 },
-]
+];
 </script>
 
 <template>
   <Card>
     <CardHeader class="pb-4">
-      <CardTitle class="text-base">
-        Move Goal
-      </CardTitle>
+      <CardTitle class="text-base"> Move Goal </CardTitle>
       <CardDescription>Set your daily activity goal.</CardDescription>
     </CardHeader>
     <CardContent class="pb-2">
@@ -57,16 +55,14 @@ const data = [
           <div class="text-5xl font-bold tracking-tighter">
             {{ goal }}
           </div>
-          <div class="text-[0.70rem] uppercase text-muted-foreground">
-            Calories/day
-          </div>
+          <div class="text-[0.70rem] uppercase text-muted-foreground">Calories/day</div>
         </div>
         <Button
           variant="outline"
           size="icon"
           class="h-8 w-8 shrink-0 rounded-full"
           :disabled="goal >= 400"
-          @click="goal += 10 "
+          @click="goal += 10"
         >
           <Plus class="h-4 w-4" />
           <span class="sr-only">Increase</span>
@@ -91,9 +87,7 @@ const data = [
       </div>
     </CardContent>
     <CardFooter>
-      <Button class="w-full">
-        Set Goal
-      </Button>
+      <Button class="w-full"> Set Goal </Button>
     </CardFooter>
   </Card>
 </template>

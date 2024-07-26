@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { Check, ChevronsUpDown } from 'lucide-vue-next'
+import { ref } from "vue";
+import { Check, ChevronsUpDown } from "lucide-vue-next";
 
-import { cn } from '@/lib/utils'
-import { Button } from '@/lib/registry/default/ui/button'
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import {
   Command,
   CommandEmpty,
@@ -11,23 +11,19 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@/lib/registry/default/ui/command'
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/lib/registry/default/ui/popover'
+} from "@/components/ui/command";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 const frameworks = [
-  { value: 'next.js', label: 'Next.js' },
-  { value: 'sveltekit', label: 'SvelteKit' },
-  { value: 'nuxt', label: 'Nuxt' },
-  { value: 'remix', label: 'Remix' },
-  { value: 'astro', label: 'Astro' },
-]
+  { value: "next.js", label: "Next.js" },
+  { value: "sveltekit", label: "SvelteKit" },
+  { value: "nuxt", label: "Nuxt" },
+  { value: "remix", label: "Remix" },
+  { value: "astro", label: "Astro" },
+];
 
-const open = ref(false)
-const value = ref('')
+const open = ref(false);
+const value = ref("");
 </script>
 
 <template>
@@ -39,9 +35,11 @@ const value = ref('')
         :aria-expanded="open"
         class="w-[200px] justify-between"
       >
-        {{ value
-          ? frameworks.find((framework) => framework.value === value)?.label
-          : "Select framework..." }}
+        {{
+          value
+            ? frameworks.find((framework) => framework.value === value)?.label
+            : "Select framework..."
+        }}
         <ChevronsUpDown class="ml-2 h-4 w-4 shrink-0 opacity-50" />
       </Button>
     </PopoverTrigger>
@@ -55,19 +53,20 @@ const value = ref('')
               v-for="framework in frameworks"
               :key="framework.value"
               :value="framework.value"
-              @select="(ev) => {
-                if (typeof ev.detail.value === 'string') {
-                  value = ev.detail.value
+              @select="
+                (ev) => {
+                  if (typeof ev.detail.value === 'string') {
+                    value = ev.detail.value;
+                  }
+                  open = false;
                 }
-                open = false
-              }"
+              "
             >
               {{ framework.label }}
               <Check
-                :class="cn(
-                  'ml-auto h-4 w-4',
-                  value === framework.value ? 'opacity-100' : 'opacity-0',
-                )"
+                :class="
+                  cn('ml-auto h-4 w-4', value === framework.value ? 'opacity-100' : 'opacity-0')
+                "
               />
             </CommandItem>
           </CommandGroup>

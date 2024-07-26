@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { h } from 'vue'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
+import { h } from "vue";
+import { toTypedSchema } from "@vee-validate/zod";
+import * as z from "zod";
 
-import { Button } from '@/lib/registry/default/ui/button'
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -12,7 +12,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/lib/registry/default/ui/form'
+} from "@/components/ui/form";
 import {
   Dialog,
   DialogContent,
@@ -21,19 +21,25 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/lib/registry/default/ui/dialog'
-import { Input } from '@/lib/registry/default/ui/input'
-import { toast } from '@/lib/registry/default/ui/toast'
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { toast } from "@/components/ui/toast";
 
-const formSchema = toTypedSchema(z.object({
-  username: z.string().min(2).max(50),
-}))
+const formSchema = toTypedSchema(
+  z.object({
+    username: z.string().min(2).max(50),
+  })
+);
 
 function onSubmit(values: any) {
   toast({
-    title: 'You submitted the following values:',
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
-  })
+    title: "You submitted the following values:",
+    description: h(
+      "pre",
+      { class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" },
+      h("code", { class: "text-white" }, JSON.stringify(values, null, 2))
+    ),
+  });
 }
 </script>
 
@@ -41,9 +47,7 @@ function onSubmit(values: any) {
   <Form v-slot="{ submitForm }" as="" :validation-schema="formSchema" @submit="onSubmit">
     <Dialog>
       <DialogTrigger as-child>
-        <Button variant="outline">
-          Edit Profile
-        </Button>
+        <Button variant="outline"> Edit Profile </Button>
       </DialogTrigger>
       <DialogContent class="sm:max-w-[425px]">
         <DialogHeader>
@@ -60,18 +64,14 @@ function onSubmit(values: any) {
               <FormControl>
                 <Input type="text" placeholder="shadcn" v-bind="componentField" />
               </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
+              <FormDescription> This is your public display name. </FormDescription>
               <FormMessage />
             </FormItem>
           </FormField>
         </form>
 
         <DialogFooter>
-          <Button type="submit" form="dialogForm">
-            Save changes
-          </Button>
+          <Button type="submit" form="dialogForm"> Save changes </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

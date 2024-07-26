@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { toast } from 'vue-sonner'
-import { Button } from '@/lib/registry/default/ui/button'
+import { toast } from "vue-sonner";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -8,15 +8,13 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/lib/registry/default/ui/dialog'
+} from "@/components/ui/dialog";
 </script>
 
 <template>
   <Dialog>
     <DialogTrigger as-child>
-      <Button variant="outline">
-        Dialog with toast
-      </Button>
+      <Button variant="outline"> Dialog with toast </Button>
     </DialogTrigger>
     <DialogContent
       class="sm:max-w-md"

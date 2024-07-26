@@ -1,26 +1,33 @@
 <script setup lang="ts">
-import { Check, Circle, Dot } from 'lucide-vue-next'
+import { Check, Circle, Dot } from "lucide-vue-next";
 
-import { Stepper, StepperDescription, StepperItem, StepperSeparator, StepperTitle, StepperTrigger } from '@/lib/registry/default/ui/stepper'
-import { Button } from '@/lib/registry/default/ui/button'
+import {
+  Stepper,
+  StepperDescription,
+  StepperItem,
+  StepperSeparator,
+  StepperTitle,
+  StepperTrigger,
+} from "@/components/ui/stepper";
+import { Button } from "@/components/ui/button";
 
 const steps = [
   {
     step: 1,
-    title: 'Your details',
-    description: 'Provide your name and email',
+    title: "Your details",
+    description: "Provide your name and email",
   },
   {
     step: 2,
-    title: 'Company details',
-    description: 'A few details about your company',
+    title: "Company details",
+    description: "A few details about your company",
   },
   {
     step: 3,
-    title: 'Invite your team',
-    description: 'Start collaborating with your team',
+    title: "Invite your team",
+    description: "Start collaborating with your team",
   },
-]
+];
 </script>
 
 <template>

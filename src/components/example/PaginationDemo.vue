@@ -8,11 +8,9 @@ import {
   PaginationListItem,
   PaginationNext,
   PaginationPrev,
-} from '@/lib/registry/default/ui/pagination'
+} from "@/components/ui/pagination";
 
-import {
-  Button,
-} from '@/lib/registry/default/ui/button'
+import { Button } from "@/components/ui/button";
 </script>
 
 <template>

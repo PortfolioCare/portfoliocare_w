@@ -1,28 +1,15 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import {
-  PinInput,
-  PinInputGroup,
-  PinInputInput,
-} from '@/lib/registry/default/ui/pin-input'
+import { ref } from "vue";
+import { PinInput, PinInputGroup, PinInputInput } from "@/components/ui/pin-input";
 
-const value = ref<string[]>([])
+const value = ref<string[]>([]);
 </script>
 
 <template>
   <div>
-    <PinInput
-      id="pin-input"
-      v-model="value"
-      placeholder="○"
-      disabled
-    >
+    <PinInput id="pin-input" v-model="value" placeholder="○" disabled>
       <PinInputGroup>
-        <PinInputInput
-          v-for="(id, index) in 5"
-          :key="id"
-          :index="index"
-        />
+        <PinInputInput v-for="(id, index) in 5" :key="id" :index="index" />
       </PinInputGroup>
     </PinInput>
   </div>

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import type { DropdownMenuCheckboxItemProps } from 'radix-vue'
-import { ref } from 'vue'
-import { Button } from '@/lib/registry/default/ui/button'
+import type { DropdownMenuCheckboxItemProps } from "radix-vue";
+import { ref } from "vue";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -9,41 +9,30 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/lib/registry/default/ui/dropdown-menu'
+} from "@/components/ui/dropdown-menu";
 
-type Checked = DropdownMenuCheckboxItemProps['checked']
+type Checked = DropdownMenuCheckboxItemProps["checked"];
 
-const showStatusBar = ref<Checked>(true)
-const showActivityBar = ref<Checked>(false)
-const showPanel = ref<Checked>(false)
+const showStatusBar = ref<Checked>(true);
+const showActivityBar = ref<Checked>(false);
+const showPanel = ref<Checked>(false);
 </script>
 
 <template>
   <DropdownMenu>
     <DropdownMenuTrigger as-child>
-      <Button variant="outline">
-        Open
-      </Button>
+      <Button variant="outline"> Open </Button>
     </DropdownMenuTrigger>
     <DropdownMenuContent class="w-56">
       <DropdownMenuLabel>Appearance</DropdownMenuLabel>
       <DropdownMenuSeparator />
-      <DropdownMenuCheckboxItem
-        v-model:checked="showStatusBar"
-      >
+      <DropdownMenuCheckboxItem v-model:checked="showStatusBar">
         Status Bar
       </DropdownMenuCheckboxItem>
-      <DropdownMenuCheckboxItem
-        v-model:checked="showActivityBar"
-        disabled
-      >
+      <DropdownMenuCheckboxItem v-model:checked="showActivityBar" disabled>
         Activity Bar
       </DropdownMenuCheckboxItem>
-      <DropdownMenuCheckboxItem
-        v-model:checked="showPanel"
-      >
-        Panel
-      </DropdownMenuCheckboxItem>
+      <DropdownMenuCheckboxItem v-model:checked="showPanel"> Panel </DropdownMenuCheckboxItem>
     </DropdownMenuContent>
   </DropdownMenu>
 </template>

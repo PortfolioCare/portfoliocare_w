@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { Button } from '@/lib/registry/default/ui/button'
-import { Input } from '@/lib/registry/default/ui/input'
-import { Label } from '@/lib/registry/default/ui/label'
+import { ref } from "vue";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Sheet,
   SheetClose,
@@ -12,11 +12,11 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from '@/lib/registry/default/ui/sheet'
+} from "@/components/ui/sheet";
 
-const SHEET_SIDES = ['top', 'right', 'bottom', 'left'] as const
+const SHEET_SIDES = ["top", "right", "bottom", "left"] as const;
 
-const username = ref('')
+const username = ref("");
 </script>
 
 <template>
@@ -46,9 +46,7 @@ const username = ref('')
         </div>
         <SheetFooter>
           <SheetClose as-child>
-            <Button type="submit">
-              Save changes
-            </Button>
+            <Button type="submit"> Save changes </Button>
           </SheetClose>
         </SheetFooter>
       </SheetContent>

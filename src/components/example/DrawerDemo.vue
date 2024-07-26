@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { Minus, Plus } from 'lucide-vue-next'
-import { VisStackedBar, VisXYContainer } from '@unovis/vue'
-import { Button } from '@/lib/registry/default/ui/button'
+import { ref } from "vue";
+import { Minus, Plus } from "lucide-vue-next";
+import { VisStackedBar, VisXYContainer } from "@unovis/vue";
+import { Button } from "@/components/ui/button";
 import {
   Drawer,
   DrawerClose,
@@ -12,11 +12,11 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from '@/lib/registry/default/ui/drawer'
+} from "@/components/ui/drawer";
 
-const goal = ref(350)
+const goal = ref(350);
 
-type Data = typeof data[number]
+type Data = (typeof data)[number];
 const data = [
   { goal: 400 },
   { goal: 300 },
@@ -31,15 +31,13 @@ const data = [
   { goal: 278 },
   { goal: 189 },
   { goal: 349 },
-]
+];
 </script>
 
 <template>
   <Drawer>
     <DrawerTrigger as-child>
-      <Button variant="outline">
-        Open Drawer
-      </Button>
+      <Button variant="outline"> Open Drawer </Button>
     </DrawerTrigger>
     <DrawerContent>
       <div class="mx-auto w-full max-w-sm">
@@ -63,9 +61,7 @@ const data = [
               <div class="text-7xl font-bold tracking-tighter">
                 {{ goal }}
               </div>
-              <div class="text-[0.70rem] uppercase text-muted-foreground">
-                Calories/day
-              </div>
+              <div class="text-[0.70rem] uppercase text-muted-foreground">Calories/day</div>
             </div>
             <Button
               variant="outline"
@@ -83,7 +79,7 @@ const data = [
               :data="data"
               class="h-[120px]"
               :style="{
-                'opacity': 0.9,
+                opacity: 0.9,
                 '--theme-primary': `hsl(var(--foreground))`,
               }"
             >
@@ -100,9 +96,7 @@ const data = [
         <DrawerFooter>
           <Button>Submit</Button>
           <DrawerClose as-child>
-            <Button variant="outline">
-              Cancel
-            </Button>
+            <Button variant="outline"> Cancel </Button>
           </DrawerClose>
         </DrawerFooter>
       </div>

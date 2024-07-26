@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button } from '@/lib/registry/default/ui/button'
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -7,26 +7,17 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/lib/registry/default/ui/card'
-import { Input } from '@/lib/registry/default/ui/input'
-import { Label } from '@/lib/registry/default/ui/label'
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from '@/lib/registry/default/ui/tabs'
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 </script>
 
 <template>
   <Tabs default-value="account" class="w-[400px]">
     <TabsList class="grid w-full grid-cols-2">
-      <TabsTrigger value="account">
-        Account
-      </TabsTrigger>
-      <TabsTrigger value="password">
-        Password
-      </TabsTrigger>
+      <TabsTrigger value="account"> Account </TabsTrigger>
+      <TabsTrigger value="password"> Password </TabsTrigger>
     </TabsList>
     <TabsContent value="account">
       <Card>

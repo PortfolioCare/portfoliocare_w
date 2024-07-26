@@ -1,32 +1,42 @@
 <script setup lang="ts">
-import { Check, Circle, Dot } from 'lucide-vue-next'
+import { Check, Circle, Dot } from "lucide-vue-next";
 
-import { Stepper, StepperDescription, StepperItem, StepperSeparator, StepperTitle, StepperTrigger } from '@/lib/registry/default/ui/stepper'
-import { Button } from '@/lib/registry/default/ui/button'
+import {
+  Stepper,
+  StepperDescription,
+  StepperItem,
+  StepperSeparator,
+  StepperTitle,
+  StepperTrigger,
+} from "@/components/ui/stepper";
+import { Button } from "@/components/ui/button";
 
 const steps = [
   {
     step: 1,
-    title: 'Your details',
+    title: "Your details",
     description:
-        'Provide your name and email address. We will use this information to create your account',
+      "Provide your name and email address. We will use this information to create your account",
   },
   {
     step: 2,
-    title: 'Company details',
-    description: 'A few details about your company will help us personalize your experience',
+    title: "Company details",
+    description: "A few details about your company will help us personalize your experience",
   },
   {
     step: 3,
-    title: 'Invite your team',
+    title: "Invite your team",
     description:
-        'Start collaborating with your team by inviting them to join your account. You can skip this step and invite them later',
+      "Start collaborating with your team by inviting them to join your account. You can skip this step and invite them later",
   },
-]
+];
 </script>
 
 <template>
-  <Stepper orientation="vertical" class="mx-auto flex w-full max-w-md flex-col justify-start gap-10">
+  <Stepper
+    orientation="vertical"
+    class="mx-auto flex w-full max-w-md flex-col justify-start gap-10"
+  >
     <StepperItem
       v-for="step in steps"
       :key="step.step"

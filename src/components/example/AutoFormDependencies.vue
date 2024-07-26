@@ -1,23 +1,27 @@
 <script setup lang="ts">
-import * as z from 'zod'
-import { h } from 'vue'
-import { DependencyType } from '../ui/auto-form/interface'
-import { Button } from '@/lib/registry/default/ui/button'
-import { toast } from '@/lib/registry/default/ui/toast'
-import { AutoForm } from '@/lib/registry/default/ui/auto-form'
+import * as z from "zod";
+import { h } from "vue";
+import { DependencyType } from "../ui/auto-form/interface";
+import { Button } from "@/components/ui/button";
+import { toast } from "@/components/ui/toast";
+import { AutoForm } from "@/components/ui/auto-form";
 
 const schema = z.object({
   age: z.number(),
   parentsAllowed: z.boolean().optional(),
   vegetarian: z.boolean().optional(),
-  mealOptions: z.enum(['Pasta', 'Salad', 'Beef Wellington']).optional(),
-})
+  mealOptions: z.enum(["Pasta", "Salad", "Beef Wellington"]).optional(),
+});
 
 function onSubmit(values: Record<string, any>) {
   toast({
-    title: 'You submitted the following values:',
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
-  })
+    title: "You submitted the following values:",
+    description: h(
+      "pre",
+      { class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" },
+      h("code", { class: "text-white" }, JSON.stringify(values, null, 2))
+    ),
+  });
 }
 </script>
 
@@ -27,16 +31,14 @@ function onSubmit(values: Record<string, any>) {
     :schema="schema"
     :field-config="{
       age: {
-        description:
-          'Setting this below 18 will require parents consent.',
+        description: 'Setting this below 18 will require parents consent.',
       },
       parentsAllowed: {
         label: 'Did your parents allow you to register?',
       },
       vegetarian: {
         label: 'Are you a vegetarian?',
-        description:
-          'Setting this to true will remove non-vegetarian food options.',
+        description: 'Setting this to true will remove non-vegetarian food options.',
       },
       mealOptions: {
         component: 'radio',
@@ -65,8 +67,6 @@ function onSubmit(values: Record<string, any>) {
     ]"
     @submit="onSubmit"
   >
-    <Button type="submit">
-      Submit
-    </Button>
+    <Button type="submit"> Submit </Button>
   </AutoForm>
 </template>

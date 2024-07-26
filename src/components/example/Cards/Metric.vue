@@ -1,15 +1,9 @@
 <script setup lang="ts">
-import { VisCrosshair, VisLine, VisScatter, VisTooltip, VisXYContainer } from '@unovis/vue'
-import { Line } from '@unovis/ts'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/lib/registry/default/ui/card'
+import { VisCrosshair, VisLine, VisScatter, VisTooltip, VisXYContainer } from "@unovis/vue";
+import { Line } from "@unovis/ts";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-type Data = typeof data[number]
+type Data = (typeof data)[number];
 const data = [
   { average: 400, today: 240 },
   { average: 300, today: 139 },
@@ -18,9 +12,9 @@ const data = [
   { average: 189, today: 480 },
   { average: 239, today: 380 },
   { average: 349, today: 430 },
-]
+];
 
-const x = (d: Data, i: number) => i
+const x = (d: Data, i: number) => i;
 function template(d: Data) {
   return `
 <div class="rounded-lg border bg-background p-2 shadow-sm">
@@ -42,12 +36,11 @@ function template(d: Data) {
       </span>
     </div>
   </div>
-</div>`
+</div>`;
 }
 
 function computeLineOpacity(val: any, index: number) {
-  if (index === 0)
-    return '0.5'
+  if (index === 0) return "0.5";
 }
 </script>
 
@@ -77,8 +70,21 @@ function computeLineOpacity(val: any, index: number) {
           }"
         >
           <VisTooltip />
-          <VisLine :x="x" :y="[(d: Data) => d.average, (d: Data) => d.today]" :stroke-width="2" color="hsl(var(--primary))" :attributes="{ [Line.selectors.linePath]: { opacity: computeLineOpacity } }" />
-          <VisScatter :x="x" :y="[(d: Data) => d.average, (d: Data) => d.today]" :size="6" :stroke-width="2" stroke-color="hsl(var(--primary))" color="white" />
+          <VisLine
+            :x="x"
+            :y="[(d: Data) => d.average, (d: Data) => d.today]"
+            :stroke-width="2"
+            color="hsl(var(--primary))"
+            :attributes="{ [Line.selectors.linePath]: { opacity: computeLineOpacity } }"
+          />
+          <VisScatter
+            :x="x"
+            :y="[(d: Data) => d.average, (d: Data) => d.today]"
+            :size="6"
+            :stroke-width="2"
+            stroke-color="hsl(var(--primary))"
+            color="white"
+          />
           <VisCrosshair :template="template" />
         </VisXYContainer>
       </div>

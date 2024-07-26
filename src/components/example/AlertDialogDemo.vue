@@ -9,23 +9,21 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@/lib/registry/default/ui/alert-dialog'
-import { Button } from '@/lib/registry/default/ui/button'
+} from "@/components/ui/alert-dialog";
+import { Button } from "@/components/ui/button";
 </script>
 
 <template>
   <AlertDialog>
     <AlertDialogTrigger as-child>
-      <Button variant="outline">
-        Show Dialog
-      </Button>
+      <Button variant="outline"> Show Dialog </Button>
     </AlertDialogTrigger>
     <AlertDialogContent>
       <AlertDialogHeader>
         <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
         <AlertDialogDescription>
-          This action cannot be undone. This will permanently delete your
-          account and remove your data from our servers.
+          This action cannot be undone. This will permanently delete your account and remove your
+          data from our servers.
         </AlertDialogDescription>
       </AlertDialogHeader>
       <AlertDialogFooter>

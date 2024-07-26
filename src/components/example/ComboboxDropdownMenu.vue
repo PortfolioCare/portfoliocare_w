@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { Calendar, MoreHorizontal, Tags, Trash, User } from 'lucide-vue-next'
+import { ref } from "vue";
+import { Calendar, MoreHorizontal, Tags, Trash, User } from "lucide-vue-next";
 
-import { Button } from '@/lib/registry/default/ui/button'
+import { Button } from "@/components/ui/button";
 import {
   Command,
   CommandEmpty,
@@ -10,7 +10,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@/lib/registry/default/ui/command'
+} from "@/components/ui/command";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -23,24 +23,26 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from '@/lib/registry/default/ui/dropdown-menu'
+} from "@/components/ui/dropdown-menu";
 
 const labels = [
-  'feature',
-  'bug',
-  'enhancement',
-  'documentation',
-  'design',
-  'question',
-  'maintenance',
-]
+  "feature",
+  "bug",
+  "enhancement",
+  "documentation",
+  "design",
+  "question",
+  "maintenance",
+];
 
-const labelRef = ref('feature')
-const open = ref(false)
+const labelRef = ref("feature");
+const open = ref(false);
 </script>
 
 <template>
-  <div class="flex w-full flex-col items-start justify-between rounded-md border px-4 py-3 sm:flex-row sm:items-center">
+  <div
+    class="flex w-full flex-col items-start justify-between rounded-md border px-4 py-3 sm:flex-row sm:items-center"
+  >
     <p class="text-sm font-medium leading-none">
       <span class="mr-2 rounded-lg bg-primary px-2 py-1 text-xs text-primary-foreground">
         {{ labelRef }}
@@ -72,10 +74,7 @@ const open = ref(false)
             </DropdownMenuSubTrigger>
             <DropdownMenuSubContent class="p-0">
               <Command>
-                <CommandInput
-                  placeholder="Filter label..."
-                  auto-focus
-                />
+                <CommandInput placeholder="Filter label..." auto-focus />
                 <CommandList>
                   <CommandEmpty>No label found.</CommandEmpty>
                   <CommandGroup>

@@ -14,9 +14,9 @@ import {
   User,
   UserPlus,
   Users,
-} from 'lucide-vue-next'
+} from "lucide-vue-next";
 
-import { Button } from '@/lib/registry/default/ui/button'
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -30,15 +30,13 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from '@/lib/registry/default/ui/dropdown-menu'
+} from "@/components/ui/dropdown-menu";
 </script>
 
 <template>
   <DropdownMenu>
     <DropdownMenuTrigger as-child>
-      <Button variant="outline">
-        Open
-      </Button>
+      <Button variant="outline"> Open </Button>
     </DropdownMenuTrigger>
     <DropdownMenuContent class="w-56">
       <DropdownMenuLabel>My Account</DropdownMenuLabel>

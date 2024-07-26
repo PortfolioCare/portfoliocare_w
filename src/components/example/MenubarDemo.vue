@@ -13,7 +13,7 @@ import {
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger,
-} from '@/lib/registry/default/ui/menubar'
+} from "@/components/ui/menubar";
 </script>
 
 <template>
@@ -21,15 +21,9 @@ import {
     <MenubarMenu>
       <MenubarTrigger>File</MenubarTrigger>
       <MenubarContent>
-        <MenubarItem>
-          New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-        </MenubarItem>
-        <MenubarItem>
-          New Window <MenubarShortcut>⌘N</MenubarShortcut>
-        </MenubarItem>
-        <MenubarItem disabled>
-          New Incognito Window
-        </MenubarItem>
+        <MenubarItem> New Tab <MenubarShortcut>⌘T</MenubarShortcut> </MenubarItem>
+        <MenubarItem> New Window <MenubarShortcut>⌘N</MenubarShortcut> </MenubarItem>
+        <MenubarItem disabled> New Incognito Window </MenubarItem>
         <MenubarSeparator />
         <MenubarSub>
           <MenubarSubTrigger>Share</MenubarSubTrigger>
@@ -40,20 +34,14 @@ import {
           </MenubarSubContent>
         </MenubarSub>
         <MenubarSeparator />
-        <MenubarItem>
-          Print... <MenubarShortcut>⌘P</MenubarShortcut>
-        </MenubarItem>
+        <MenubarItem> Print... <MenubarShortcut>⌘P</MenubarShortcut> </MenubarItem>
       </MenubarContent>
     </MenubarMenu>
     <MenubarMenu>
       <MenubarTrigger>Edit</MenubarTrigger>
       <MenubarContent>
-        <MenubarItem>
-          Undo <MenubarShortcut>⌘Z</MenubarShortcut>
-        </MenubarItem>
-        <MenubarItem>
-          Redo <MenubarShortcut>⇧⌘Z</MenubarShortcut>
-        </MenubarItem>
+        <MenubarItem> Undo <MenubarShortcut>⌘Z</MenubarShortcut> </MenubarItem>
+        <MenubarItem> Redo <MenubarShortcut>⇧⌘Z</MenubarShortcut> </MenubarItem>
         <MenubarSeparator />
         <MenubarSub>
           <MenubarSubTrigger>Find</MenubarSubTrigger>
@@ -75,48 +63,30 @@ import {
       <MenubarTrigger>View</MenubarTrigger>
       <MenubarContent>
         <MenubarCheckboxItem>Always Show Bookmarks Bar</MenubarCheckboxItem>
-        <MenubarCheckboxItem checked>
-          Always Show Full URLs
-        </MenubarCheckboxItem>
+        <MenubarCheckboxItem checked> Always Show Full URLs </MenubarCheckboxItem>
         <MenubarSeparator />
-        <MenubarItem inset>
-          Reload <MenubarShortcut>⌘R</MenubarShortcut>
-        </MenubarItem>
+        <MenubarItem inset> Reload <MenubarShortcut>⌘R</MenubarShortcut> </MenubarItem>
         <MenubarItem disabled inset>
           Force Reload <MenubarShortcut>⇧⌘R</MenubarShortcut>
         </MenubarItem>
         <MenubarSeparator />
-        <MenubarItem inset>
-          Toggle Fullscreen
-        </MenubarItem>
+        <MenubarItem inset> Toggle Fullscreen </MenubarItem>
         <MenubarSeparator />
-        <MenubarItem inset>
-          Hide Sidebar
-        </MenubarItem>
+        <MenubarItem inset> Hide Sidebar </MenubarItem>
       </MenubarContent>
     </MenubarMenu>
     <MenubarMenu>
       <MenubarTrigger>Profiles</MenubarTrigger>
       <MenubarContent>
         <MenubarRadioGroup value="benoit">
-          <MenubarRadioItem value="andy">
-            Andy
-          </MenubarRadioItem>
-          <MenubarRadioItem value="benoit">
-            Benoit
-          </MenubarRadioItem>
-          <MenubarRadioItem value="Luis">
-            Luis
-          </MenubarRadioItem>
+          <MenubarRadioItem value="andy"> Andy </MenubarRadioItem>
+          <MenubarRadioItem value="benoit"> Benoit </MenubarRadioItem>
+          <MenubarRadioItem value="Luis"> Luis </MenubarRadioItem>
         </MenubarRadioGroup>
         <MenubarSeparator />
-        <MenubarItem inset>
-          Edit...
-        </MenubarItem>
+        <MenubarItem inset> Edit... </MenubarItem>
         <MenubarSeparator />
-        <MenubarItem inset>
-          Add Profile...
-        </MenubarItem>
+        <MenubarItem inset> Add Profile... </MenubarItem>
       </MenubarContent>
     </MenubarMenu>
   </Menubar>

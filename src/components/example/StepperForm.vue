@@ -1,11 +1,25 @@
 <script setup lang="ts">
-import { Check, Circle, Dot } from 'lucide-vue-next'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
-import { computed, h, ref } from 'vue'
-import { get, set } from '@vueuse/core'
-import { Stepper, StepperDescription, StepperItem, StepperSeparator, StepperTitle, StepperTrigger } from '@/lib/registry/default/ui/stepper'
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/default/ui/form'
+import { Check, Circle, Dot } from "lucide-vue-next";
+import { toTypedSchema } from "@vee-validate/zod";
+import * as z from "zod";
+import { computed, h, ref } from "vue";
+import { get, set } from "@vueuse/core";
+import {
+  Stepper,
+  StepperDescription,
+  StepperItem,
+  StepperSeparator,
+  StepperTitle,
+  StepperTrigger,
+} from "@/components/ui/stepper";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import {
   Select,
   SelectContent,
@@ -13,87 +27,97 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/lib/registry/default/ui/select'
-import { Input } from '@/lib/registry/default/ui/input'
-import { Button } from '@/lib/registry/default/ui/button'
-import { toast } from '@/lib/registry/default/ui/toast'
+} from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { toast } from "@/components/ui/toast";
 
 const formSchema = [
   z.object({
     fullName: z.string(),
     email: z.string().email(),
   }),
+  z
+    .object({
+      password: z.string().min(2).max(50),
+      confirmPassword: z.string(),
+    })
+    .refine(
+      (values) => {
+        return values.password === values.confirmPassword;
+      },
+      {
+        message: "Passwords must match!",
+        path: ["confirmPassword"],
+      }
+    ),
   z.object({
-    password: z.string().min(2).max(50),
-    confirmPassword: z.string(),
-  }).refine(
-    (values) => {
-      return values.password === values.confirmPassword
-    },
-    {
-      message: 'Passwords must match!',
-      path: ['confirmPassword'],
-    },
-  ),
-  z.object({
-    favoriteDrink: z.union([z.literal('coffee'), z.literal('tea'), z.literal('soda')]),
+    favoriteDrink: z.union([z.literal("coffee"), z.literal("tea"), z.literal("soda")]),
   }),
-]
+];
 
-const stepIndex = ref(1)
+const stepIndex = ref(1);
 const steps = [
   {
     step: 1,
-    title: 'Your details',
-    description: 'Provide your name and email',
+    title: "Your details",
+    description: "Provide your name and email",
   },
   {
     step: 2,
-    title: 'Your password',
-    description: 'Choose a password',
+    title: "Your password",
+    description: "Choose a password",
   },
   {
     step: 3,
-    title: 'Your Favorite Drink',
-    description: 'Choose a drink',
+    title: "Your Favorite Drink",
+    description: "Choose a drink",
   },
-]
+];
 
-const canGoNext = computed(() => stepIndex.value < steps.length)
-const canGoBack = computed(() => stepIndex.value > 1)
+const canGoNext = computed(() => stepIndex.value < steps.length);
+const canGoBack = computed(() => stepIndex.value > 1);
 function goNext() {
   if (get(canGoNext)) {
-    set(stepIndex, stepIndex.value + 1)
+    set(stepIndex, stepIndex.value + 1);
   }
 }
 function goBack() {
   if (get(canGoBack)) {
-    set(stepIndex, stepIndex.value - 1)
+    set(stepIndex, stepIndex.value - 1);
   }
 }
 
 function onSubmit(values: any) {
   toast({
-    title: 'You submitted the following values:',
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
-  })
+    title: "You submitted the following values:",
+    description: h(
+      "pre",
+      { class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" },
+      h("code", { class: "text-white" }, JSON.stringify(values, null, 2))
+    ),
+  });
 }
 </script>
 
 <template>
   <Form
     v-slot="{ meta, values, validate }"
-    as="" keep-values :validation-schema="toTypedSchema(formSchema[stepIndex - 1])"
+    as=""
+    keep-values
+    :validation-schema="toTypedSchema(formSchema[stepIndex - 1])"
   >
     <form
-      @submit="(e) => {
-        e.preventDefault()
-        validate()
+      @submit="
+        (e) => {
+          e.preventDefault();
+          validate();
 
-        if (stepIndex === steps.length) {
-          onSubmit(values)
+          if (stepIndex === steps.length) {
+            onSubmit(values);
+          }
         }
-      }"
+      "
     >
       <Stepper v-model="stepIndex" class="flex w-full items-start gap-2">
         <StepperItem
@@ -113,7 +137,9 @@ function onSubmit(values: any) {
               :variant="state === 'completed' || state === 'active' ? 'default' : 'outline'"
               size="icon"
               class="z-10 rounded-full shrink-0"
-              :class="[state === 'active' && 'ring-2 ring-ring ring-offset-2 ring-offset-background']"
+              :class="[
+                state === 'active' && 'ring-2 ring-ring ring-offset-2 ring-offset-background',
+              ]"
               :disabled="state !== 'completed' && !meta.valid"
             >
               <Check v-if="state === 'completed'" class="size-5" />
@@ -197,15 +223,9 @@ function onSubmit(values: any) {
                 </FormControl>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectItem value="coffee">
-                      Coffe
-                    </SelectItem>
-                    <SelectItem value="tea">
-                      Tea
-                    </SelectItem>
-                    <SelectItem value="soda">
-                      Soda
-                    </SelectItem>
+                    <SelectItem value="coffee"> Coffe </SelectItem>
+                    <SelectItem value="tea"> Tea </SelectItem>
+                    <SelectItem value="soda"> Soda </SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
@@ -216,18 +236,18 @@ function onSubmit(values: any) {
       </div>
 
       <div class="flex items-center justify-between mt-4">
-        <Button :disabled="!canGoBack" variant="outline" size="sm" @click="goBack">
-          Back
-        </Button>
+        <Button :disabled="!canGoBack" variant="outline" size="sm" @click="goBack"> Back </Button>
         <div class="flex items-center gap-3">
-          <Button v-if="stepIndex !== 3" :type="meta.valid ? 'button' : 'submit'" :disabled="!canGoNext" size="sm" @click="meta.valid && goNext()">
+          <Button
+            v-if="stepIndex !== 3"
+            :type="meta.valid ? 'button' : 'submit'"
+            :disabled="!canGoNext"
+            size="sm"
+            @click="meta.valid && goNext()"
+          >
             Next
           </Button>
-          <Button
-            v-if="stepIndex === 3" size="sm" type="submit"
-          >
-            Submit
-          </Button>
+          <Button v-if="stepIndex === 3" size="sm" type="submit"> Submit </Button>
         </div>
       </div>
     </form>

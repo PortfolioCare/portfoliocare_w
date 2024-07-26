@@ -1,21 +1,17 @@
 <script setup lang="ts">
-import { addDays, format } from 'date-fns'
-import { Calendar as CalendarIcon } from 'lucide-vue-next'
+import { addDays, format } from "date-fns";
+import { Calendar as CalendarIcon } from "lucide-vue-next";
 
-import { ref } from 'vue'
-import { cn } from '@/lib/utils'
-import { Button } from '@/lib/registry/default/ui/button'
-import { Calendar } from '@/lib/registry/default/ui/v-calendar'
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/lib/registry/default/ui/popover'
+import { ref } from "vue";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/v-calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 const date = ref({
   start: new Date(2022, 0, 20),
   end: addDays(new Date(2022, 0, 20), 20),
-})
+});
 </script>
 
 <template>
@@ -25,41 +21,31 @@ const date = ref({
         <Button
           id="date"
           :variant="'outline'"
-          :class="cn(
-            'w-[280px] justify-start text-left font-normal',
-            !date && 'text-muted-foreground',
-          )"
+          :class="
+            cn('w-[280px] justify-start text-left font-normal', !date && 'text-muted-foreground')
+          "
         >
           <CalendarIcon class="mr-2 h-4 w-4" />
 
           <span>
-            {{ date.start ? (
-              date.end ? `${format(date.start, 'LLL dd, y')} - ${format(date.end, 'LLL dd, y')}`
-              : format(date.start, 'LLL dd, y')
-            ) : 'Pick a date' }}
+            {{
+              date.start
+                ? date.end
+                  ? `${format(date.start, "LLL dd, y")} - ${format(date.end, "LLL dd, y")}`
+                  : format(date.start, "LLL dd, y")
+                : "Pick a date"
+            }}
           </span>
         </Button>
       </PopoverTrigger>
       <PopoverContent class="w-auto p-0" align="start">
-        <Calendar
-          v-model.range="date"
-          mode="date"
-          :columns="2"
-        >
+        <Calendar v-model.range="date" mode="date" :columns="2">
           <template #footer>
             <div class="w-full px-3 pb-3">
               Entry time
-              <Calendar
-                v-model="date.start"
-                mode="time"
-                hide-time-header
-              />
+              <Calendar v-model="date.start" mode="time" hide-time-header />
               Exit time
-              <Calendar
-                v-model="date.end"
-                mode="time"
-                hide-time-header
-              />
+              <Calendar v-model="date.end" mode="time" hide-time-header />
             </div>
           </template>
         </Calendar>

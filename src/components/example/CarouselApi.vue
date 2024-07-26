@@ -1,29 +1,34 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { watchOnce } from '@vueuse/core'
-import type { CarouselApi } from '@/lib/registry/default/ui/carousel'
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/lib/registry/default/ui/carousel'
-import { Card, CardContent } from '@/lib/registry/default/ui/card'
+import { ref } from "vue";
+import { watchOnce } from "@vueuse/core";
+import type { CarouselApi } from "@/components/ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Card, CardContent } from "@/components/ui/card";
 
-const api = ref<CarouselApi>()
-const totalCount = ref(0)
-const current = ref(0)
+const api = ref<CarouselApi>();
+const totalCount = ref(0);
+const current = ref(0);
 
 function setApi(val: CarouselApi) {
-  api.value = val
+  api.value = val;
 }
 
 watchOnce(api, (api) => {
-  if (!api)
-    return
+  if (!api) return;
 
-  totalCount.value = api.scrollSnapList().length
-  current.value = api.selectedScrollSnap() + 1
+  totalCount.value = api.scrollSnapList().length;
+  current.value = api.selectedScrollSnap() + 1;
 
-  api.on('select', () => {
-    current.value = api.selectedScrollSnap() + 1
-  })
-})
+  api.on("select", () => {
+    current.value = api.selectedScrollSnap() + 1;
+  });
+});
 </script>
 
 <template>

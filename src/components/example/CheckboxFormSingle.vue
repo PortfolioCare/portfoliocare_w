@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { h } from 'vue'
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
+import { h } from "vue";
+import { useForm } from "vee-validate";
+import { toTypedSchema } from "@vee-validate/zod";
+import * as z from "zod";
 
-import { Button } from '@/lib/registry/default/ui/button'
+import { Button } from "@/components/ui/button";
 import {
   FormControl,
   FormDescription,
@@ -12,27 +12,33 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/lib/registry/default/ui/form'
-import { Checkbox } from '@/lib/registry/default/ui/checkbox'
-import { toast } from '@/lib/registry/default/ui/toast'
+} from "@/components/ui/form";
+import { Checkbox } from "@/components/ui/checkbox";
+import { toast } from "@/components/ui/toast";
 
-const formSchema = toTypedSchema(z.object({
-  mobile: z.boolean().default(false).optional(),
-}))
+const formSchema = toTypedSchema(
+  z.object({
+    mobile: z.boolean().default(false).optional(),
+  })
+);
 
 const { handleSubmit } = useForm({
   validationSchema: formSchema,
   initialValues: {
     mobile: true,
   },
-})
+});
 
 const onSubmit = handleSubmit((values) => {
   toast({
-    title: 'You submitted the following values:',
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
-  })
-})
+    title: "You submitted the following values:",
+    description: h(
+      "pre",
+      { class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" },
+      h("code", { class: "text-white" }, JSON.stringify(values, null, 2))
+    ),
+  });
+});
 </script>
 
 <template>
@@ -52,8 +58,6 @@ const onSubmit = handleSubmit((values) => {
         </div>
       </FormItem>
     </FormField>
-    <Button type="submit">
-      Submit
-    </Button>
-  </Form>
+    <Button type="submit"> Submit </Button>
+  </form>
 </template>

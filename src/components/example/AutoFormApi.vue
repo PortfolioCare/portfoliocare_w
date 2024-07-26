@@ -1,45 +1,40 @@
 <script setup lang="ts">
-import * as z from 'zod'
-import { h, onMounted, shallowRef } from 'vue'
-import { Button } from '@/lib/registry/default/ui/button'
-import { toast } from '@/lib/registry/default/ui/toast'
-import { AutoForm } from '@/lib/registry/default/ui/auto-form'
+import * as z from "zod";
+import { h, onMounted, shallowRef } from "vue";
+import { Button } from "@/components/ui/button";
+import { toast } from "@/components/ui/toast";
+import { AutoForm } from "@/components/ui/auto-form";
 
-const schema = shallowRef<z.ZodObject< any, any, any > | null>(null)
+const schema = shallowRef<z.ZodObject<any, any, any> | null>(null);
 
 onMounted(() => {
-  fetch('https://jsonplaceholder.typicode.com/users')
-    .then(response => response.json())
+  fetch("https://jsonplaceholder.typicode.com/users")
+    .then((response) => response.json())
     .then((data) => {
       schema.value = z.object({
         user: z.enum(data.map((user: any) => user.name)),
-      })
-    })
-})
+      });
+    });
+});
 
 function onSubmit(values: Record<string, any>) {
   toast({
-    title: 'You submitted the following values:',
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
-  })
+    title: "You submitted the following values:",
+    description: h(
+      "pre",
+      { class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" },
+      h("code", { class: "text-white" }, JSON.stringify(values, null, 2))
+    ),
+  });
 }
 </script>
 
 <template>
   <div class="flex justify-center w-full">
-    <AutoForm
-      v-if="schema"
-      class="w-2/3 space-y-6"
-      :schema="schema"
-      @submit="onSubmit"
-    >
-      <Button type="submit">
-        Submit
-      </Button>
+    <AutoForm v-if="schema" class="w-2/3 space-y-6" :schema="schema" @submit="onSubmit">
+      <Button type="submit"> Submit </Button>
     </AutoForm>
 
-    <div v-else>
-      Loading...
-    </div>
+    <div v-else>Loading...</div>
   </div>
 </template>

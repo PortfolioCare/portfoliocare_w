@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Button } from '@/lib/registry/default/ui/button'
-import { Input } from '@/lib/registry/default/ui/input'
-import { Label } from '@/lib/registry/default/ui/label'
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Sheet,
   SheetClose,
@@ -11,15 +11,13 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from '@/lib/registry/default/ui/sheet'
+} from "@/components/ui/sheet";
 </script>
 
 <template>
   <Sheet>
     <SheetTrigger as-child>
-      <Button variant="outline">
-        Open
-      </Button>
+      <Button variant="outline"> Open </Button>
     </SheetTrigger>
     <SheetContent>
       <SheetHeader>
@@ -30,23 +28,17 @@ import {
       </SheetHeader>
       <div class="grid gap-4 py-4">
         <div class="grid grid-cols-4 items-center gap-4">
-          <Label for="name" class="text-right">
-            Name
-          </Label>
+          <Label for="name" class="text-right"> Name </Label>
           <Input id="name" value="Pedro Duarte" class="col-span-3" />
         </div>
         <div class="grid grid-cols-4 items-center gap-4">
-          <Label for="username" class="text-right">
-            Username
-          </Label>
+          <Label for="username" class="text-right"> Username </Label>
           <Input id="username" value="@peduarte" class="col-span-3" />
         </div>
       </div>
       <SheetFooter>
         <SheetClose as-child>
-          <Button type="submit">
-            Save changes
-          </Button>
+          <Button type="submit"> Save changes </Button>
         </SheetClose>
       </SheetFooter>
     </SheetContent>

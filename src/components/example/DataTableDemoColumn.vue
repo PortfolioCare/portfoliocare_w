@@ -1,20 +1,27 @@
 <script setup lang="ts">
-import { MoreHorizontal } from 'lucide-vue-next'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/lib/registry/default/ui/dropdown-menu'
-import { Button } from '@/lib/registry/default/ui/button'
+import { MoreHorizontal } from "lucide-vue-next";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
 
 defineProps<{
   payment: {
-    id: string
-  }
-}>()
+    id: string;
+  };
+}>();
 
 defineEmits<{
-  (e: 'expand'): void
-}>()
+  (e: "expand"): void;
+}>();
 
 function copy(id: string) {
-  navigator.clipboard.writeText(id)
+  navigator.clipboard.writeText(id);
 }
 </script>
 
@@ -28,12 +35,8 @@ function copy(id: string) {
     </DropdownMenuTrigger>
     <DropdownMenuContent align="end">
       <DropdownMenuLabel>Actions</DropdownMenuLabel>
-      <DropdownMenuItem @click="copy(payment.id)">
-        Copy payment ID
-      </DropdownMenuItem>
-      <DropdownMenuItem @click="$emit('expand')">
-        Expand
-      </DropdownMenuItem>
+      <DropdownMenuItem @click="copy(payment.id)"> Copy payment ID </DropdownMenuItem>
+      <DropdownMenuItem @click="$emit('expand')"> Expand </DropdownMenuItem>
       <DropdownMenuSeparator />
       <DropdownMenuItem>View customer</DropdownMenuItem>
       <DropdownMenuItem>View payment details</DropdownMenuItem>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Textarea } from '@/lib/registry/default/ui/textarea'
-import { Label } from '@/lib/registry/default/ui/label'
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 </script>
 
 <template>

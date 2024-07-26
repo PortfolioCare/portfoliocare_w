@@ -1,7 +1,8 @@
 <script lang="ts">
-export const description = 'An products dashboard with a sidebar navigation. The sidebar has icon navigation. The content area has a breadcrumb and search in the header. It displays a list of products in a table with actions.'
-export const iframeHeight = '938px'
-export const containerClass = 'w-full h-full'
+export const description =
+  "An products dashboard with a sidebar navigation. The sidebar has icon navigation. The content area has a breadcrumb and search in the header. It displays a list of products in a table with actions.";
+export const iframeHeight = "938px";
+export const containerClass = "w-full h-full";
 </script>
 
 <script setup lang="ts">
@@ -20,13 +21,27 @@ import {
   Settings,
   ShoppingCart,
   Users2,
-} from 'lucide-vue-next'
+} from "lucide-vue-next";
 
-import { Badge } from '@/lib/registry/default/ui/badge'
-import { Button } from '@/lib/registry/default/ui/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/lib/registry/default/ui/card'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/lib/registry/default/ui/dropdown-menu'
-import { Input } from '@/lib/registry/default/ui/input'
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -34,8 +49,8 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/lib/registry/default/ui/breadcrumb'
-import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/default/ui/sheet'
+} from "@/components/ui/breadcrumb";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   Table,
   TableBody,
@@ -43,19 +58,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/lib/registry/default/ui/table'
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from '@/lib/registry/default/ui/tabs'
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/lib/registry/default/ui/tooltip'
+} from "@/components/ui/table";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 </script>
 
 <template>
@@ -80,9 +85,7 @@ import {
                 <span class="sr-only">Dashboard</span>
               </a>
             </TooltipTrigger>
-            <TooltipContent side="right">
-              Dashboard
-            </TooltipContent>
+            <TooltipContent side="right"> Dashboard </TooltipContent>
           </Tooltip>
         </TooltipProvider>
         <TooltipProvider>
@@ -96,9 +99,7 @@ import {
                 <span class="sr-only">Orders</span>
               </a>
             </TooltipTrigger>
-            <TooltipContent side="right">
-              Orders
-            </TooltipContent>
+            <TooltipContent side="right"> Orders </TooltipContent>
           </Tooltip>
         </TooltipProvider>
         <TooltipProvider>
@@ -112,9 +113,7 @@ import {
                 <span class="sr-only">Products</span>
               </a>
             </TooltipTrigger>
-            <TooltipContent side="right">
-              Products
-            </TooltipContent>
+            <TooltipContent side="right"> Products </TooltipContent>
           </Tooltip>
         </TooltipProvider>
         <TooltipProvider>
@@ -128,9 +127,7 @@ import {
                 <span class="sr-only">Customers</span>
               </a>
             </TooltipTrigger>
-            <TooltipContent side="right">
-              Customers
-            </TooltipContent>
+            <TooltipContent side="right"> Customers </TooltipContent>
           </Tooltip>
         </TooltipProvider>
         <TooltipProvider>
@@ -144,9 +141,7 @@ import {
                 <span class="sr-only">Analytics</span>
               </a>
             </TooltipTrigger>
-            <TooltipContent side="right">
-              Analytics
-            </TooltipContent>
+            <TooltipContent side="right"> Analytics </TooltipContent>
           </Tooltip>
         </TooltipProvider>
       </nav>
@@ -162,15 +157,15 @@ import {
                 <span class="sr-only">Settings</span>
               </a>
             </TooltipTrigger>
-            <TooltipContent side="right">
-              Settings
-            </TooltipContent>
+            <TooltipContent side="right"> Settings </TooltipContent>
           </Tooltip>
         </TooltipProvider>
       </nav>
     </aside>
     <div class="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
-      <header class="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
+      <header
+        class="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6"
+      >
         <Sheet>
           <SheetTrigger as-child>
             <Button size="icon" variant="outline" class="sm:hidden">
@@ -201,10 +196,7 @@ import {
                 <ShoppingCart class="h-5 w-5" />
                 Orders
               </a>
-              <a
-                href="#"
-                class="flex items-center gap-4 px-2.5 text-foreground"
-              >
+              <a href="#" class="flex items-center gap-4 px-2.5 text-foreground">
                 <Package class="h-5 w-5" />
                 Products
               </a>
@@ -273,52 +265,34 @@ import {
         <Tabs default-value="all">
           <div class="flex items-center">
             <TabsList>
-              <TabsTrigger value="all">
-                All
-              </TabsTrigger>
-              <TabsTrigger value="active">
-                Active
-              </TabsTrigger>
-              <TabsTrigger value="draft">
-                Draft
-              </TabsTrigger>
-              <TabsTrigger value="archived" class="hidden sm:flex">
-                Archived
-              </TabsTrigger>
+              <TabsTrigger value="all"> All </TabsTrigger>
+              <TabsTrigger value="active"> Active </TabsTrigger>
+              <TabsTrigger value="draft"> Draft </TabsTrigger>
+              <TabsTrigger value="archived" class="hidden sm:flex"> Archived </TabsTrigger>
             </TabsList>
             <div class="ml-auto flex items-center gap-2">
               <DropdownMenu>
                 <DropdownMenuTrigger as-child>
                   <Button variant="outline" size="sm" class="h-7 gap-1">
                     <ListFilter class="h-3.5 w-3.5" />
-                    <span class="sr-only sm:not-sr-only sm:whitespace-nowrap">
-                      Filter
-                    </span>
+                    <span class="sr-only sm:not-sr-only sm:whitespace-nowrap"> Filter </span>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                   <DropdownMenuLabel>Filter by</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem checked>
-                    Active
-                  </DropdownMenuItem>
+                  <DropdownMenuItem checked> Active </DropdownMenuItem>
                   <DropdownMenuItem>Draft</DropdownMenuItem>
-                  <DropdownMenuItem>
-                    Archived
-                  </DropdownMenuItem>
+                  <DropdownMenuItem> Archived </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
               <Button size="sm" variant="outline" class="h-7 gap-1">
                 <File class="h-3.5 w-3.5" />
-                <span class="sr-only sm:not-sr-only sm:whitespace-nowrap">
-                  Export
-                </span>
+                <span class="sr-only sm:not-sr-only sm:whitespace-nowrap"> Export </span>
               </Button>
               <Button size="sm" class="h-7 gap-1">
                 <PlusCircle class="h-3.5 w-3.5" />
-                <span class="sr-only sm:not-sr-only sm:whitespace-nowrap">
-                  Add Product
-                </span>
+                <span class="sr-only sm:not-sr-only sm:whitespace-nowrap"> Add Product </span>
               </Button>
             </div>
           </div>
@@ -339,15 +313,9 @@ import {
                       </TableHead>
                       <TableHead>Name</TableHead>
                       <TableHead>Status</TableHead>
-                      <TableHead class="hidden md:table-cell">
-                        Price
-                      </TableHead>
-                      <TableHead class="hidden md:table-cell">
-                        Total Sales
-                      </TableHead>
-                      <TableHead class="hidden md:table-cell">
-                        Created at
-                      </TableHead>
+                      <TableHead class="hidden md:table-cell"> Price </TableHead>
+                      <TableHead class="hidden md:table-cell"> Total Sales </TableHead>
+                      <TableHead class="hidden md:table-cell"> Created at </TableHead>
                       <TableHead>
                         <span class="sr-only">Actions</span>
                       </TableHead>
@@ -362,33 +330,19 @@ import {
                           height="64"
                           src="/placeholder.svg"
                           width="64"
-                        >
+                        />
                       </TableCell>
-                      <TableCell class="font-medium">
-                        Laser Lemonade Machine
-                      </TableCell>
+                      <TableCell class="font-medium"> Laser Lemonade Machine </TableCell>
                       <TableCell>
-                        <Badge variant="outline">
-                          Draft
-                        </Badge>
+                        <Badge variant="outline"> Draft </Badge>
                       </TableCell>
-                      <TableCell class="hidden md:table-cell">
-                        $499.99
-                      </TableCell>
-                      <TableCell class="hidden md:table-cell">
-                        25
-                      </TableCell>
-                      <TableCell class="hidden md:table-cell">
-                        2023-07-12 10:42 AM
-                      </TableCell>
+                      <TableCell class="hidden md:table-cell"> $499.99 </TableCell>
+                      <TableCell class="hidden md:table-cell"> 25 </TableCell>
+                      <TableCell class="hidden md:table-cell"> 2023-07-12 10:42 AM </TableCell>
                       <TableCell>
                         <DropdownMenu>
                           <DropdownMenuTrigger as-child>
-                            <Button
-                              aria-haspopup="true"
-                              size="icon"
-                              variant="ghost"
-                            >
+                            <Button aria-haspopup="true" size="icon" variant="ghost">
                               <MoreHorizontal class="h-4 w-4" />
                               <span class="sr-only">Toggle menu</span>
                             </Button>
@@ -409,33 +363,19 @@ import {
                           height="64"
                           src="/placeholder.svg"
                           width="64"
-                        >
+                        />
                       </TableCell>
-                      <TableCell class="font-medium">
-                        Hypernova Headphones
-                      </TableCell>
+                      <TableCell class="font-medium"> Hypernova Headphones </TableCell>
                       <TableCell>
-                        <Badge variant="outline">
-                          Active
-                        </Badge>
+                        <Badge variant="outline"> Active </Badge>
                       </TableCell>
-                      <TableCell class="hidden md:table-cell">
-                        $129.99
-                      </TableCell>
-                      <TableCell class="hidden md:table-cell">
-                        100
-                      </TableCell>
-                      <TableCell class="hidden md:table-cell">
-                        2023-10-18 03:21 PM
-                      </TableCell>
+                      <TableCell class="hidden md:table-cell"> $129.99 </TableCell>
+                      <TableCell class="hidden md:table-cell"> 100 </TableCell>
+                      <TableCell class="hidden md:table-cell"> 2023-10-18 03:21 PM </TableCell>
                       <TableCell>
                         <DropdownMenu>
                           <DropdownMenuTrigger as-child>
-                            <Button
-                              aria-haspopup="true"
-                              size="icon"
-                              variant="ghost"
-                            >
+                            <Button aria-haspopup="true" size="icon" variant="ghost">
                               <MoreHorizontal class="h-4 w-4" />
                               <span class="sr-only">Toggle menu</span>
                             </Button>
@@ -456,33 +396,19 @@ import {
                           height="64"
                           src="/placeholder.svg"
                           width="64"
-                        >
+                        />
                       </TableCell>
-                      <TableCell class="font-medium">
-                        AeroGlow Desk Lamp
-                      </TableCell>
+                      <TableCell class="font-medium"> AeroGlow Desk Lamp </TableCell>
                       <TableCell>
-                        <Badge variant="outline">
-                          Active
-                        </Badge>
+                        <Badge variant="outline"> Active </Badge>
                       </TableCell>
-                      <TableCell class="hidden md:table-cell">
-                        $39.99
-                      </TableCell>
-                      <TableCell class="hidden md:table-cell">
-                        50
-                      </TableCell>
-                      <TableCell class="hidden md:table-cell">
-                        2023-11-29 08:15 AM
-                      </TableCell>
+                      <TableCell class="hidden md:table-cell"> $39.99 </TableCell>
+                      <TableCell class="hidden md:table-cell"> 50 </TableCell>
+                      <TableCell class="hidden md:table-cell"> 2023-11-29 08:15 AM </TableCell>
                       <TableCell>
                         <DropdownMenu>
                           <DropdownMenuTrigger as-child>
-                            <Button
-                              aria-haspopup="true"
-                              size="icon"
-                              variant="ghost"
-                            >
+                            <Button aria-haspopup="true" size="icon" variant="ghost">
                               <MoreHorizontal class="h-4 w-4" />
                               <span class="sr-only">Toggle menu</span>
                             </Button>
@@ -503,33 +429,19 @@ import {
                           height="64"
                           src="/placeholder.svg"
                           width="64"
-                        >
+                        />
                       </TableCell>
-                      <TableCell class="font-medium">
-                        TechTonic Energy Drink
-                      </TableCell>
+                      <TableCell class="font-medium"> TechTonic Energy Drink </TableCell>
                       <TableCell>
-                        <Badge variant="secondary">
-                          Draft
-                        </Badge>
+                        <Badge variant="secondary"> Draft </Badge>
                       </TableCell>
-                      <TableCell class="hidden md:table-cell">
-                        $2.99
-                      </TableCell>
-                      <TableCell class="hidden md:table-cell">
-                        0
-                      </TableCell>
-                      <TableCell class="hidden md:table-cell">
-                        2023-12-25 11:59 PM
-                      </TableCell>
+                      <TableCell class="hidden md:table-cell"> $2.99 </TableCell>
+                      <TableCell class="hidden md:table-cell"> 0 </TableCell>
+                      <TableCell class="hidden md:table-cell"> 2023-12-25 11:59 PM </TableCell>
                       <TableCell>
                         <DropdownMenu>
                           <DropdownMenuTrigger as-child>
-                            <Button
-                              aria-haspopup="true"
-                              size="icon"
-                              variant="ghost"
-                            >
+                            <Button aria-haspopup="true" size="icon" variant="ghost">
                               <MoreHorizontal class="h-4 w-4" />
                               <span class="sr-only">Toggle menu</span>
                             </Button>
@@ -550,33 +462,19 @@ import {
                           height="64"
                           src="/placeholder.svg"
                           width="64"
-                        >
+                        />
                       </TableCell>
-                      <TableCell class="font-medium">
-                        Gamer Gear Pro Controller
-                      </TableCell>
+                      <TableCell class="font-medium"> Gamer Gear Pro Controller </TableCell>
                       <TableCell>
-                        <Badge variant="outline">
-                          Active
-                        </Badge>
+                        <Badge variant="outline"> Active </Badge>
                       </TableCell>
-                      <TableCell class="hidden md:table-cell">
-                        $59.99
-                      </TableCell>
-                      <TableCell class="hidden md:table-cell">
-                        75
-                      </TableCell>
-                      <TableCell class="hidden md:table-cell">
-                        2024-01-01 12:00 AM
-                      </TableCell>
+                      <TableCell class="hidden md:table-cell"> $59.99 </TableCell>
+                      <TableCell class="hidden md:table-cell"> 75 </TableCell>
+                      <TableCell class="hidden md:table-cell"> 2024-01-01 12:00 AM </TableCell>
                       <TableCell>
                         <DropdownMenu>
                           <DropdownMenuTrigger as-child>
-                            <Button
-                              aria-haspopup="true"
-                              size="icon"
-                              variant="ghost"
-                            >
+                            <Button aria-haspopup="true" size="icon" variant="ghost">
                               <MoreHorizontal class="h-4 w-4" />
                               <span class="sr-only">Toggle menu</span>
                             </Button>
@@ -597,33 +495,19 @@ import {
                           height="64"
                           src="/placeholder.svg"
                           width="64"
-                        >
+                        />
                       </TableCell>
-                      <TableCell class="font-medium">
-                        Luminous VR Headset
-                      </TableCell>
+                      <TableCell class="font-medium"> Luminous VR Headset </TableCell>
                       <TableCell>
-                        <Badge variant="outline">
-                          Active
-                        </Badge>
+                        <Badge variant="outline"> Active </Badge>
                       </TableCell>
-                      <TableCell class="hidden md:table-cell">
-                        $199.99
-                      </TableCell>
-                      <TableCell class="hidden md:table-cell">
-                        30
-                      </TableCell>
-                      <TableCell class="hidden md:table-cell">
-                        2024-02-14 02:14 PM
-                      </TableCell>
+                      <TableCell class="hidden md:table-cell"> $199.99 </TableCell>
+                      <TableCell class="hidden md:table-cell"> 30 </TableCell>
+                      <TableCell class="hidden md:table-cell"> 2024-02-14 02:14 PM </TableCell>
                       <TableCell>
                         <DropdownMenu>
                           <DropdownMenuTrigger as-child>
-                            <Button
-                              aria-haspopup="true"
-                              size="icon"
-                              variant="ghost"
-                            >
+                            <Button aria-haspopup="true" size="icon" variant="ghost">
                               <MoreHorizontal class="h-4 w-4" />
                               <span class="sr-only">Toggle menu</span>
                             </Button>

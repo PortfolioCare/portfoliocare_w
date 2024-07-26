@@ -1,16 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import {
-  ArrowUpCircle,
-  CheckCircle2,
-  Circle,
-  HelpCircle,
-  XCircle,
-} from 'lucide-vue-next'
-import type { Icon } from 'lucide-vue-next'
+import { ref } from "vue";
+import { ArrowUpCircle, CheckCircle2, Circle, HelpCircle, XCircle } from "lucide-vue-next";
+import type { Icon } from "lucide-vue-next";
 
-import { cn } from '@/lib/utils'
-import { Button } from '@/lib/registry/default/ui/button'
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import {
   Command,
   CommandEmpty,
@@ -18,72 +12,60 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@/lib/registry/default/ui/command'
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/lib/registry/default/ui/popover'
+} from "@/components/ui/command";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 interface Status {
-  value: string
-  label: string
-  icon: Icon
+  value: string;
+  label: string;
+  icon: Icon;
 }
 
 const statuses: Status[] = [
   {
-    value: 'backlog',
-    label: 'Backlog',
+    value: "backlog",
+    label: "Backlog",
     icon: HelpCircle,
   },
   {
-    value: 'todo',
-    label: 'Todo',
+    value: "todo",
+    label: "Todo",
     icon: Circle,
   },
   {
-    value: 'in progress',
-    label: 'In Progress',
+    value: "in progress",
+    label: "In Progress",
     icon: ArrowUpCircle,
   },
   {
-    value: 'done',
-    label: 'Done',
+    value: "done",
+    label: "Done",
     icon: CheckCircle2,
   },
   {
-    value: 'canceled',
-    label: 'Canceled',
+    value: "canceled",
+    label: "Canceled",
     icon: XCircle,
   },
-]
+];
 
-const open = ref(false)
+const open = ref(false);
 // const value = ref<typeof statuses[number]>()
 
-const selectedStatus = ref<Status>()
+const selectedStatus = ref<Status>();
 </script>
 
 <template>
   <div class="flex items-center space-x-4">
-    <p class="text-sm text-muted-foreground">
-      Status
-    </p>
+    <p class="text-sm text-muted-foreground">Status</p>
     <Popover v-model:open="open">
       <PopoverTrigger as-child>
-        <Button
-          variant="outline"
-          size="sm"
-          class="w-[150px] justify-start"
-        >
+        <Button variant="outline" size="sm" class="w-[150px] justify-start">
           <template v-if="selectedStatus">
             <component :is="selectedStatus?.icon" class="mr-2 h-4 w-4 shrink-0" />
             {{ selectedStatus?.label }}
           </template>
-          <template v-else>
-            + Set status
-          </template>
+          <template v-else> + Set status </template>
         </Button>
       </PopoverTrigger>
       <PopoverContent class="p-0" side="right" align="start">
@@ -96,16 +78,22 @@ const selectedStatus = ref<Status>()
                 v-for="status in statuses"
                 :key="status.value"
                 :value="status.value"
-                @select="(value) => {
-                  selectedStatus = status
-                  open = false
-                }"
+                @select="
+                  (value) => {
+                    selectedStatus = status;
+                    open = false;
+                  }
+                "
               >
                 <component
                   :is="status.icon"
                   :key="status.value"
-                  :class="cn('mr-2 h-4 w-4', status.value === selectedStatus?.value ? 'opacity-100' : 'opacity-40',
-                  )"
+                  :class="
+                    cn(
+                      'mr-2 h-4 w-4',
+                      status.value === selectedStatus?.value ? 'opacity-100' : 'opacity-40'
+                    )
+                  "
                 />
                 <span>{{ status.label }}</span>
               </CommandItem>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Textarea } from '@/lib/registry/default/ui/textarea'
-import { Button } from '@/lib/registry/default/ui/button'
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
 </script>
 
 <template>

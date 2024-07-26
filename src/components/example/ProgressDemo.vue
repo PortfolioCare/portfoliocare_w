@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue'
-import { Progress } from '@/lib/registry/default/ui/progress'
+import { ref, watchEffect } from "vue";
+import { Progress } from "@/components/ui/progress";
 
-const progress = ref(13)
+const progress = ref(13);
 
 watchEffect((cleanupFn) => {
-  const timer = setTimeout(() => progress.value = 66, 500)
-  cleanupFn(() => clearTimeout(timer))
-})
+  const timer = setTimeout(() => (progress.value = 66), 500);
+  cleanupFn(() => clearTimeout(timer));
+});
 </script>
 
 <template>

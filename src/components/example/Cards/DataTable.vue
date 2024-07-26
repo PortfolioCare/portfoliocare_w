@@ -4,7 +4,7 @@ import type {
   ColumnFiltersState,
   SortingState,
   VisibilityState,
-} from '@tanstack/vue-table'
+} from "@tanstack/vue-table";
 import {
   FlexRender,
   getCoreRowModel,
@@ -12,20 +12,20 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   useVueTable,
-} from '@tanstack/vue-table'
-import { h, ref } from 'vue'
-import { ChevronDown, ChevronsUpDown } from 'lucide-vue-next'
-import DropdownAction from '../DataTableDemoColumn.vue'
+} from "@tanstack/vue-table";
+import { h, ref } from "vue";
+import { ChevronDown, ChevronsUpDown } from "lucide-vue-next";
+import DropdownAction from "../DataTableDemoColumn.vue";
 
-import { Button } from '@/lib/registry/default/ui/button'
-import { Checkbox } from '@/lib/registry/default/ui/checkbox'
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from '@/lib/registry/default/ui/dropdown-menu'
-import { Input } from '@/lib/registry/default/ui/input'
+} from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
 import {
   Table,
   TableBody,
@@ -33,113 +33,121 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/lib/registry/default/ui/table'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/lib/registry/default/ui/card'
-import { valueUpdater } from '@/lib/utils'
+} from "@/components/ui/table";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { valueUpdater } from "@/lib/utils";
 
 export interface Payment {
-  id: string
-  amount: number
-  status: 'pending' | 'processing' | 'success' | 'failed'
-  email: string
+  id: string;
+  amount: number;
+  status: "pending" | "processing" | "success" | "failed";
+  email: string;
 }
 
 const data: Payment[] = [
   {
-    id: 'm5gr84i9',
+    id: "m5gr84i9",
     amount: 316,
-    status: 'success',
-    email: 'ken99@yahoo.com',
+    status: "success",
+    email: "ken99@yahoo.com",
   },
   {
-    id: '3u1reuv4',
+    id: "3u1reuv4",
     amount: 242,
-    status: 'success',
-    email: 'Abe45@gmail.com',
+    status: "success",
+    email: "Abe45@gmail.com",
   },
   {
-    id: 'derv1ws0',
+    id: "derv1ws0",
     amount: 837,
-    status: 'processing',
-    email: 'Monserrat44@gmail.com',
+    status: "processing",
+    email: "Monserrat44@gmail.com",
   },
   {
-    id: '5kma53ae',
+    id: "5kma53ae",
     amount: 874,
-    status: 'success',
-    email: 'Silas22@gmail.com',
+    status: "success",
+    email: "Silas22@gmail.com",
   },
   {
-    id: 'bhqecj4p',
+    id: "bhqecj4p",
     amount: 721,
-    status: 'failed',
-    email: 'carmella@hotmail.com',
+    status: "failed",
+    email: "carmella@hotmail.com",
   },
-]
+];
 
 const columns: ColumnDef<Payment>[] = [
   {
-    id: 'select',
-    header: ({ table }) => h(Checkbox, {
-      'checked': table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && 'indeterminate'),
-      'onUpdate:checked': value => table.toggleAllPageRowsSelected(!!value),
-      'ariaLabel': 'Select all',
-    }),
-    cell: ({ row }) => h(Checkbox, {
-      'checked': row.getIsSelected(),
-      'onUpdate:checked': value => row.toggleSelected(!!value),
-      'ariaLabel': 'Select row',
-    }),
+    id: "select",
+    header: ({ table }) =>
+      h(Checkbox, {
+        checked:
+          table.getIsAllPageRowsSelected() ||
+          (table.getIsSomePageRowsSelected() && "indeterminate"),
+        "onUpdate:checked": (value) => table.toggleAllPageRowsSelected(!!value),
+        ariaLabel: "Select all",
+      }),
+    cell: ({ row }) =>
+      h(Checkbox, {
+        checked: row.getIsSelected(),
+        "onUpdate:checked": (value) => row.toggleSelected(!!value),
+        ariaLabel: "Select row",
+      }),
     enableSorting: false,
     enableHiding: false,
   },
   {
-    accessorKey: 'status',
-    header: 'Status',
-    cell: ({ row }) => h('div', { class: 'capitalize' }, row.getValue('status')),
+    accessorKey: "status",
+    header: "Status",
+    cell: ({ row }) => h("div", { class: "capitalize" }, row.getValue("status")),
   },
   {
-    accessorKey: 'email',
+    accessorKey: "email",
     header: ({ column }) => {
-      return h(Button, {
-        variant: 'ghost',
-        onClick: () => column.toggleSorting(column.getIsSorted() === 'asc'),
-      }, ['Email', h(ChevronsUpDown, { class: 'ml-2 h-4 w-4' })])
+      return h(
+        Button,
+        {
+          variant: "ghost",
+          onClick: () => column.toggleSorting(column.getIsSorted() === "asc"),
+        },
+        ["Email", h(ChevronsUpDown, { class: "ml-2 h-4 w-4" })]
+      );
     },
-    cell: ({ row }) => h('div', { class: 'lowercase' }, row.getValue('email')),
+    cell: ({ row }) => h("div", { class: "lowercase" }, row.getValue("email")),
   },
   {
-    accessorKey: 'amount',
-    header: () => h('div', { class: 'text-right' }, 'Amount'),
+    accessorKey: "amount",
+    header: () => h("div", { class: "text-right" }, "Amount"),
     cell: ({ row }) => {
-      const amount = Number.parseFloat(row.getValue('amount'))
+      const amount = Number.parseFloat(row.getValue("amount"));
 
       // Format the amount as a dollar amount
-      const formatted = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-      }).format(amount)
+      const formatted = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+      }).format(amount);
 
-      return h('div', { class: 'text-right font-medium' }, formatted)
+      return h("div", { class: "text-right font-medium" }, formatted);
     },
   },
   {
-    id: 'actions',
+    id: "actions",
     enableHiding: false,
     cell: ({ row }) => {
-      const payment = row.original
+      const payment = row.original;
 
       return h(DropdownAction, {
         payment,
-      })
+      });
     },
   },
-]
+];
 
-const sorting = ref<SortingState>([])
-const columnFilters = ref<ColumnFiltersState>([])
-const columnVisibility = ref<VisibilityState>({})
-const rowSelection = ref({})
+const sorting = ref<SortingState>([]);
+const columnFilters = ref<ColumnFiltersState>([]);
+const columnVisibility = ref<VisibilityState>({});
+const rowSelection = ref({});
 
 const table = useVueTable({
   data,
@@ -148,17 +156,25 @@ const table = useVueTable({
   getPaginationRowModel: getPaginationRowModel(),
   getSortedRowModel: getSortedRowModel(),
   getFilteredRowModel: getFilteredRowModel(),
-  onSortingChange: updaterOrValue => valueUpdater(updaterOrValue, sorting),
-  onColumnFiltersChange: updaterOrValue => valueUpdater(updaterOrValue, columnFilters),
-  onColumnVisibilityChange: updaterOrValue => valueUpdater(updaterOrValue, columnVisibility),
-  onRowSelectionChange: updaterOrValue => valueUpdater(updaterOrValue, rowSelection),
+  onSortingChange: (updaterOrValue) => valueUpdater(updaterOrValue, sorting),
+  onColumnFiltersChange: (updaterOrValue) => valueUpdater(updaterOrValue, columnFilters),
+  onColumnVisibilityChange: (updaterOrValue) => valueUpdater(updaterOrValue, columnVisibility),
+  onRowSelectionChange: (updaterOrValue) => valueUpdater(updaterOrValue, rowSelection),
   state: {
-    get sorting() { return sorting.value },
-    get columnFilters() { return columnFilters.value },
-    get columnVisibility() { return columnVisibility.value },
-    get rowSelection() { return rowSelection.value },
+    get sorting() {
+      return sorting.value;
+    },
+    get columnFilters() {
+      return columnFilters.value;
+    },
+    get columnVisibility() {
+      return columnVisibility.value;
+    },
+    get rowSelection() {
+      return rowSelection.value;
+    },
   },
-})
+});
 </script>
 
 <template>
@@ -174,7 +190,7 @@ const table = useVueTable({
             class="max-w-sm"
             placeholder="Filter emails..."
             :model-value="table.getColumn('email')?.getFilterValue() as string"
-            @update:model-value=" table.getColumn('email')?.setFilterValue($event)"
+            @update:model-value="table.getColumn('email')?.setFilterValue($event)"
           />
           <DropdownMenu>
             <DropdownMenuTrigger as-child>
@@ -188,9 +204,11 @@ const table = useVueTable({
                 :key="column.id"
                 class="capitalize"
                 :checked="column.getIsVisible()"
-                @update:checked="(value) => {
-                  column.toggleVisibility(!!value)
-                }"
+                @update:checked="
+                  (value) => {
+                    column.toggleVisibility(!!value);
+                  }
+                "
               >
                 {{ column.id }}
               </DropdownMenuCheckboxItem>
@@ -201,8 +219,16 @@ const table = useVueTable({
           <Table>
             <TableHeader>
               <TableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
-                <TableHead v-for="header in headerGroup.headers" :key="header.id" class="[&:has([role=checkbox])]:pl-3">
-                  <FlexRender v-if="!header.isPlaceholder" :render="header.column.columnDef.header" :props="header.getContext()" />
+                <TableHead
+                  v-for="header in headerGroup.headers"
+                  :key="header.id"
+                  class="[&:has([role=checkbox])]:pl-3"
+                >
+                  <FlexRender
+                    v-if="!header.isPlaceholder"
+                    :render="header.column.columnDef.header"
+                    :props="header.getContext()"
+                  />
                 </TableHead>
               </TableRow>
             </TableHeader>
@@ -213,17 +239,18 @@ const table = useVueTable({
                   :key="row.id"
                   :data-state="row.getIsSelected() && 'selected'"
                 >
-                  <TableCell v-for="cell in row.getVisibleCells()" :key="cell.id" class="[&:has([role=checkbox])]:pl-3">
+                  <TableCell
+                    v-for="cell in row.getVisibleCells()"
+                    :key="cell.id"
+                    class="[&:has([role=checkbox])]:pl-3"
+                  >
                     <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
                   </TableCell>
                 </TableRow>
               </template>
 
               <TableRow v-else>
-                <TableCell
-                  :colspan="columns.length"
-                  class="h-24 text-center"
-                >
+                <TableCell :colspan="columns.length" class="h-24 text-center">
                   No results.
                 </TableCell>
               </TableRow>

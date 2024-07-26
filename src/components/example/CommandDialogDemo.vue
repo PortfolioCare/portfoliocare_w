@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useMagicKeys } from '@vueuse/core'
+import { useMagicKeys } from "@vueuse/core";
 
-import { ref, watch } from 'vue'
+import { ref, watch } from "vue";
 import {
   CommandDialog,
   CommandEmpty,
@@ -10,25 +10,23 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from '@/lib/registry/default/ui/command'
+} from "@/components/ui/command";
 
-const open = ref(false)
+const open = ref(false);
 
 const { Meta_J, Ctrl_J } = useMagicKeys({
   passive: false,
   onEventFired(e) {
-    if (e.key === 'j' && (e.metaKey || e.ctrlKey))
-      e.preventDefault()
+    if (e.key === "j" && (e.metaKey || e.ctrlKey)) e.preventDefault();
   },
-})
+});
 
 watch([Meta_J, Ctrl_J], (v) => {
-  if (v[0] || v[1])
-    handleOpenChange()
-})
+  if (v[0] || v[1]) handleOpenChange();
+});
 
 function handleOpenChange() {
-  open.value = !open.value
+  open.value = !open.value;
 }
 </script>
 
@@ -47,27 +45,15 @@ function handleOpenChange() {
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup heading="Suggestions">
-          <CommandItem value="calendar">
-            Calendar
-          </CommandItem>
-          <CommandItem value="search-emoji">
-            Search Emoji
-          </CommandItem>
-          <CommandItem value="calculator">
-            Calculator
-          </CommandItem>
+          <CommandItem value="calendar"> Calendar </CommandItem>
+          <CommandItem value="search-emoji"> Search Emoji </CommandItem>
+          <CommandItem value="calculator"> Calculator </CommandItem>
         </CommandGroup>
         <CommandSeparator />
         <CommandGroup heading="Settings">
-          <CommandItem value="profile">
-            Profile
-          </CommandItem>
-          <CommandItem value="billing">
-            Billing
-          </CommandItem>
-          <CommandItem value="settings">
-            Settings
-          </CommandItem>
+          <CommandItem value="profile"> Profile </CommandItem>
+          <CommandItem value="billing"> Billing </CommandItem>
+          <CommandItem value="settings"> Settings </CommandItem>
         </CommandGroup>
       </CommandList>
     </CommandDialog>
