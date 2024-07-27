@@ -15,10 +15,21 @@ import {
   MenubarSubTrigger,
   MenubarTrigger,
 } from "@/components/ui/menubar";
+import { cn } from "@/lib/utils";
+import { onMounted, ref } from "vue";
+const platform = ref("windows");
+onMounted(async () => {
+  const platform_data = await window.ipcRenderer.invoke("app_platform");
+  platform.value = platform_data;
+});
 </script>
 
 <template>
-  <Menubar class="rounded-none border-b border-none px-2 lg:px-4">
+  <Menubar
+    :class="
+      cn('rounded-none border-b border-none px-2 lg:px-4', platform === 'darwin' && 'ml-[50px]')
+    "
+  >
     <MenubarMenu>
       <MenubarTrigger class="font-bold"> Music </MenubarTrigger>
       <MenubarContent>
