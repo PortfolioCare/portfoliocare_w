@@ -17,6 +17,8 @@ import {
 } from "@/components/ui/menubar";
 import { cn } from "@/lib/utils";
 import { onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
 const platform = ref("windows");
 onMounted(async () => {
   const platform_data = await window.ipcRenderer.invoke("app_platform");
@@ -174,27 +176,83 @@ onMounted(async () => {
       <MenubarContent>
         <MenubarLabel inset> examples </MenubarLabel>
         <MenubarSeparator />
-        <MenubarRadioGroup value="benoit">
-          <MenubarRadioItem value="andy"> Andy </MenubarRadioItem>
-          <MenubarRadioItem value="benoit"> Benoit </MenubarRadioItem>
-          <MenubarRadioItem value="Luis"> Luis </MenubarRadioItem>
+        <MenubarItem inset @click="router.push({ path: '/examples/mail' })"> mail </MenubarItem>
+        <MenubarItem inset @click="router.push({ path: '/examples/authentication' })">
+          authentication
+        </MenubarItem>
+        <MenubarItem inset @click="router.push({ path: '/examples/cards' })"> cards </MenubarItem>
+        <MenubarItem inset @click="router.push({ path: '/examples/dashboard' })">
+          dashboard
+        </MenubarItem>
+
+        <MenubarRadioGroup value="forms">
+          <MenubarRadioItem
+            value="Profile"
+            @click="router.push({ path: '/examples/forms/Profile' })"
+          >
+            Profile
+          </MenubarRadioItem>
+          <MenubarRadioItem
+            value="Account"
+            @click="router.push({ path: '/examples/forms/Account' })"
+          >
+            Account
+          </MenubarRadioItem>
+          <MenubarRadioItem
+            value="Appearance"
+            @click="router.push({ path: '/examples/forms/Appearance' })"
+          >
+            Appearance
+          </MenubarRadioItem>
+          <MenubarRadioItem
+            value="Notifications"
+            @click="router.push({ path: '/examples/forms/Notifications' })"
+          >
+            Notifications
+          </MenubarRadioItem>
+          <MenubarRadioItem
+            value="Display"
+            @click="router.push({ path: '/examples/forms/Display' })"
+          >
+            Display
+          </MenubarRadioItem>
         </MenubarRadioGroup>
         <MenubarSeparator />
         <MenubarLabel inset> block </MenubarLabel>
         <MenubarSeparator />
-        <MenubarRadioGroup value="benoit">
-          <MenubarRadioItem value="andy"> Andy </MenubarRadioItem>
-          <MenubarRadioItem value="benoit"> Benoit </MenubarRadioItem>
-          <MenubarRadioItem value="Luis"> Luis </MenubarRadioItem>
-        </MenubarRadioGroup>
-        <MenubarSeparator />
-        <MenubarLabel inset> ui example </MenubarLabel>
-        <MenubarSeparator />
-        <MenubarRadioGroup value="benoit">
-          <MenubarRadioItem value="andy"> Andy </MenubarRadioItem>
-          <MenubarRadioItem value="benoit"> Benoit </MenubarRadioItem>
-          <MenubarRadioItem value="Luis"> Luis </MenubarRadioItem>
-        </MenubarRadioGroup>
+        <MenubarItem inset @click="router.push({ path: '/block/Authentication01' })">
+          Authentication01
+        </MenubarItem>
+        <MenubarItem inset @click="router.push({ path: '/block/Authentication02' })">
+          Authentication02
+        </MenubarItem>
+        <MenubarItem inset @click="router.push({ path: '/block/Authentication03' })">
+          Authentication03
+        </MenubarItem>
+        <MenubarItem inset @click="router.push({ path: '/block/Authentication04' })">
+          Authentication04
+        </MenubarItem>
+        <MenubarItem inset @click="router.push({ path: '/block/Dashboard01' })">
+          Dashboard01
+        </MenubarItem>
+        <MenubarItem inset @click="router.push({ path: '/block/Dashboard02' })">
+          Dashboard02
+        </MenubarItem>
+        <MenubarItem inset @click="router.push({ path: '/block/Dashboard03' })">
+          Dashboard03
+        </MenubarItem>
+        <MenubarItem inset @click="router.push({ path: '/block/Dashboard04' })">
+          Dashboard04
+        </MenubarItem>
+        <MenubarItem inset @click="router.push({ path: '/block/Dashboard05' })">
+          Dashboard05
+        </MenubarItem>
+        <MenubarItem inset @click="router.push({ path: '/block/Dashboard06' })">
+          Dashboard06
+        </MenubarItem>
+        <MenubarItem inset @click="router.push({ path: '/block/Dashboard07' })">
+          Dashboard07
+        </MenubarItem>
       </MenubarContent>
     </MenubarMenu>
     <div class="flex-1 draggable h-full"></div>
