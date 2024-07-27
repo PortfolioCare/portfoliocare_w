@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import axios from "@/services/axios";
 import { onMounted, ref } from "vue";
-import TitleBar from "@/components/TitleBar.vue";
+import AppBar from "@/components/AppBar.vue";
 console.log(import.meta.env);
 console.log(process.env.NODE_ENV);
 
@@ -15,7 +15,7 @@ onMounted(async () => {
 
 <template>
   <div>
-    <TitleBar />
+    <AppBar />
     <div class="h-dvh">
       <RouterView />
     </div>
