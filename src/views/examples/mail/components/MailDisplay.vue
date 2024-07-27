@@ -48,7 +48,7 @@ const today = new Date();
 </script>
 
 <template>
-  <div class="flex h-full flex-col">
+  <div class="flex h-full flex-col pb-3">
     <div class="flex items-center p-2">
       <div class="flex items-center gap-2">
         <Tooltip>
