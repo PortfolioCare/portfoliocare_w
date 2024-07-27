@@ -169,6 +169,34 @@ onMounted(async () => {
         <MenubarItem inset> Add Account... </MenubarItem>
       </MenubarContent>
     </MenubarMenu>
+    <MenubarMenu>
+      <MenubarTrigger class="md:block"> demo </MenubarTrigger>
+      <MenubarContent>
+        <MenubarLabel inset> examples </MenubarLabel>
+        <MenubarSeparator />
+        <MenubarRadioGroup value="benoit">
+          <MenubarRadioItem value="andy"> Andy </MenubarRadioItem>
+          <MenubarRadioItem value="benoit"> Benoit </MenubarRadioItem>
+          <MenubarRadioItem value="Luis"> Luis </MenubarRadioItem>
+        </MenubarRadioGroup>
+        <MenubarSeparator />
+        <MenubarLabel inset> block </MenubarLabel>
+        <MenubarSeparator />
+        <MenubarRadioGroup value="benoit">
+          <MenubarRadioItem value="andy"> Andy </MenubarRadioItem>
+          <MenubarRadioItem value="benoit"> Benoit </MenubarRadioItem>
+          <MenubarRadioItem value="Luis"> Luis </MenubarRadioItem>
+        </MenubarRadioGroup>
+        <MenubarSeparator />
+        <MenubarLabel inset> ui example </MenubarLabel>
+        <MenubarSeparator />
+        <MenubarRadioGroup value="benoit">
+          <MenubarRadioItem value="andy"> Andy </MenubarRadioItem>
+          <MenubarRadioItem value="benoit"> Benoit </MenubarRadioItem>
+          <MenubarRadioItem value="Luis"> Luis </MenubarRadioItem>
+        </MenubarRadioGroup>
+      </MenubarContent>
+    </MenubarMenu>
     <div class="flex-1 draggable h-full"></div>
   </Menubar>
 </template>
