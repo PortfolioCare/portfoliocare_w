@@ -7,6 +7,7 @@ import autoprefixer from "autoprefixer";
 import electron from "vite-plugin-electron/simple";
 import { viteMockServe } from "vite-plugin-mock";
 import Icons from "unplugin-icons/vite";
+import native from "vite-plugin-native";
 export default defineConfig(({ mode }) => {
   // 加载环境变量
   const env = loadEnv(mode, process.cwd());
@@ -32,6 +33,13 @@ export default defineConfig(({ mode }) => {
         main: {
           // Shortcut of `build.lib.entry`.
           entry: path.resolve(__dirname, "electron/main.ts"),
+          vite: {
+            plugins: [
+              native({
+                webpack: {},
+              }),
+            ],
+          },
         },
         preload: {
           // Shortcut of `build.rollupOptions.input`.

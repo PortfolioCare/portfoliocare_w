@@ -52,6 +52,8 @@
     "vite-plugin-electron": "^0.28.6",
     "vite-plugin-electron-renderer": "^0.14.5",
     "vite-plugin-mock": "^2.9.6",
-    "vue-tsc": "^2.0.21"
+    "sqlite3": "^5.1.7",
+    "vue-tsc": "^2.0.21",
+    "vite-plugin-native": "^2.2.1"
   }
 }

@@ -6,6 +6,7 @@ import fs from "node:fs";
 import { ChildProcess } from "node:child_process";
 import child_process from "node:child_process";
 process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";
+import { getSqlite3 } from "./sqlite3";
 
 // const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -138,6 +139,13 @@ function createWindow() {
     console.log("child_process exit ");
   });
   console.log(workerProcess.pid);
+
+  getSqlite3().then((database) => {
+    // ensure did-finish-load
+    setTimeout(() => {
+      win?.webContents.send("main-process-message", "[sqlite3] initialize success :)");
+    }, 999);
+  });
 }
 
 // Quit when all windows are closed, except on macOS. There, it's common
