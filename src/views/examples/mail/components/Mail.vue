@@ -29,7 +29,7 @@ interface MailProps {
 
 const props = withDefaults(defineProps<MailProps>(), {
   defaultCollapsed: false,
-  defaultLayout: () => [265, 440, 655],
+  defaultLayout: () => [15, 30, 55],
 });
 
 const isCollapsed = ref(props.defaultCollapsed);
