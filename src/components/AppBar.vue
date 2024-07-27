@@ -169,5 +169,6 @@ onMounted(async () => {
         <MenubarItem inset> Add Account... </MenubarItem>
       </MenubarContent>
     </MenubarMenu>
+    <div class="flex-1 draggable h-full"></div>
   </Menubar>
 </template>
