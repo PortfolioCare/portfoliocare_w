@@ -173,7 +173,12 @@ function onExpand() {
         <Nav :is-collapsed="isCollapsed" :links="links2" />
       </ResizablePanel>
       <ResizableHandle id="resize-handle-1" with-handle />
-      <ResizablePanel id="resize-panel-2" :default-size="defaultLayout[1]" :min-size="30">
+      <ResizablePanel
+        id="resize-panel-2"
+        :default-size="defaultLayout[1]"
+        :min-size="30"
+        class="mb-12"
+      >
         <Tabs default-value="all">
           <div class="flex items-center px-4 py-2">
             <h1 class="text-xl font-bold">Inbox</h1>
@@ -206,7 +211,7 @@ function onExpand() {
         </Tabs>
       </ResizablePanel>
       <ResizableHandle id="resiz-handle-2" with-handle />
-      <ResizablePanel id="resize-panel-3" :default-size="defaultLayout[2]">
+      <ResizablePanel id="resize-panel-3" :default-size="defaultLayout[2]" class="mb-15">
         <MailDisplay :mail="selectedMailData" />
       </ResizablePanel>
     </ResizablePanelGroup>
