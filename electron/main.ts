@@ -141,6 +141,7 @@ function createWindow() {
   console.log(workerProcess.pid);
 
   getSqlite3().then((database) => {
+    console.log("database init suc");
     // ensure did-finish-load
     setTimeout(() => {
       win?.webContents.send("main-process-message", "[sqlite3] initialize success :)");
