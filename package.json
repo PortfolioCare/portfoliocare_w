@@ -44,7 +44,7 @@
     "@types/node": "^20.14.10",
     "@vitejs/plugin-vue": "^5.0.5",
     "autoprefixer": "^10.4.19",
-    "electron": "^30.2.0",
+    "electron": "30.2.0",
     "electron-builder": "^24.13.3",
     "mockjs": "^1.1.0",
     "sqlite3": "^5.1.7",
