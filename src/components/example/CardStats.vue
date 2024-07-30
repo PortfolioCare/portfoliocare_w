@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import { VisLine, VisScatter, VisStackedBar, VisXYContainer } from "@unovis/vue";
 import { computed } from "vue";
 import { useData } from "vitepress";
@@ -90,4 +90,4 @@ const lineY = (d: Data) => d.revenue;
       </CardContent>
     </Card>
   </div>
-</template>
+</template> -->

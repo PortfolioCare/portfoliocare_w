@@ -44,6 +44,9 @@ importers:
       date-fns:
         specifier: ^3.6.0
         version: 3.6.0
+      embla-carousel-autoplay:
+        specifier: ^8.1.7
+        version: 8.1.7(embla-carousel@8.1.7)
       embla-carousel-vue:
         specifier: ^8.1.7
         version: 8.1.7(vue@3.4.34(typescript@5.5.4))
@@ -1689,6 +1692,11 @@ packages:
 
   elkjs@0.8.2:
     resolution: {integrity: sha512-L6uRgvZTH+4OF5NE/MBbzQx/WYpru1xCBE9respNj6qznEewGUIfhzmm7horWWxbNO2M0WckQypGctR8lH79xQ==}
+
+  embla-carousel-autoplay@8.1.7:
+    resolution: {integrity: sha512-UXt1XvCNwzC/Sqd7iU8nYd1CjuDLweIwJClfBL3gVTzHQBVwb68GBBfC/oPFsEeIWNUZe8NO5xDQSI9aTnYO7Q==}
+    peerDependencies:
+      embla-carousel: 8.1.7
 
   embla-carousel-reactive-utils@8.1.7:
     resolution: {integrity: sha512-FDPcWjNtW04KSuvSfGbVeoB8yl5no3E0++HikO/uW12cNkMnWt68C4OBOakZQZlpUdRQSA9KCYoBuQzfpVGvZQ==}
@@ -5296,6 +5304,10 @@ snapshots:
       - supports-color
 
   elkjs@0.8.2: {}
+
+  embla-carousel-autoplay@8.1.7(embla-carousel@8.1.7):
+    dependencies:
+      embla-carousel: 8.1.7
 
   embla-carousel-reactive-utils@8.1.7(embla-carousel@8.1.7):
     dependencies:

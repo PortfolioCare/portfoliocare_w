@@ -345,7 +345,7 @@ export default {
         id: 1,
         time: to,
         color: "red",
-        text: ["This is the mark pop-up text."],
+        text: "This is the mark pop-up text.",
         label: "M",
         labelFontColor: "blue",
         minSize: 25,
@@ -354,7 +354,7 @@ export default {
         id: 2,
         time: to + 5260000, // 2 months
         color: "red",
-        text: ["Second marker"],
+        text: "Second marker",
         label: "S",
         labelFontColor: "green",
         minSize: 25,

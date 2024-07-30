@@ -1,5 +1,4 @@
 const animate = require("tailwindcss-animate")
-const draggable = require("./src/plugin/cust_draggable")
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -90,5 +89,11 @@ module.exports = {
       },
     },
   },
-  plugins: [animate, draggable],
+  plugins: [animate, function ({ addUtilities }) {
+    addUtilities({
+      ".draggable": {
+        "-webkit-app-region": "drag",
+      },
+    });
+  },],
 }
