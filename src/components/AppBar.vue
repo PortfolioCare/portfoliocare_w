@@ -21,7 +21,7 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 const platform = ref("windows");
 onMounted(async () => {
-  const platform_data = await window.ipcRenderer.invoke("app_platform");
+  const platform_data = await window.ipcRenderer?.invoke("app_platform");
   platform.value = platform_data;
 });
 </script>

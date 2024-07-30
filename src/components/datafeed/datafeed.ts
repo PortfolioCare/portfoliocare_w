@@ -13,6 +13,7 @@ import {
   GetMarksCallback,
   TimescaleMark,
   ServerTimeCallback,
+  Mark,
 } from "../../../public/charting_library";
 import { subscribeOnStream, unsubscribeFromStream } from "./streaming.js";
 
