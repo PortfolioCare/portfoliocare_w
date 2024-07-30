@@ -13,7 +13,7 @@ import {
   StudyLinePlotPreferences,
   CustomIndicator,
   RawStudyMetaInfoId,
-  StudyPlotType,
+  StudyLinePlotInfo,
   ResolutionString,
   IChartingLibraryWidget,
 } from "../../public/charting_library";
@@ -141,7 +141,7 @@ onMounted(async () => {
               precision: 1,
             },
 
-            plots: [{ id: "plot_0", type: "line" }],
+            plots: [{ id: "plot_0", type: "line" } as StudyLinePlotInfo],
             defaults: {
               styles: {
                 plot_0: {
