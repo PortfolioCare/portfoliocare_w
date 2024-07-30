@@ -39,7 +39,7 @@ const props = defineProps({
     type: String,
   },
   libraryPath: {
-    default: "/charting_library/",
+    default: "./charting_library/",
     type: String,
   },
   chartsStorageUrl: {
