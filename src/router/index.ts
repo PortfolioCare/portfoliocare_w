@@ -6,6 +6,10 @@ const routes = [
     redirect: "/examples",
     children: [
       {
+        path: "trading",
+        component: () => import("@/views/ChartingLibrary.vue"),
+      },
+      {
         path: "block",
         redirect: "/block/Authentication01",
         children: [

@@ -12,7 +12,7 @@
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "preserve",
@@ -27,5 +27,12 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/mock/*.ts", "src/mock/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
+  "include": [
+    "src/**/*.ts",
+    "src/mock/*.ts",
+    "public/**/*.d.ts",
+    "src/mock/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
+  ]
 }

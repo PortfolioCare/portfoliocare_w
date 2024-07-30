@@ -174,6 +174,8 @@ onMounted(async () => {
     <MenubarMenu>
       <MenubarTrigger class="md:block"> demo </MenubarTrigger>
       <MenubarContent>
+        <MenubarItem inset @click="router.push({ path: '/trading' })"> trading </MenubarItem>
+        <MenubarSeparator />
         <MenubarLabel inset> examples </MenubarLabel>
         <MenubarSeparator />
         <MenubarItem inset @click="router.push({ path: '/examples/mail' })"> mail </MenubarItem>
