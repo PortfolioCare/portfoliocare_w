@@ -193,3 +193,6 @@ const selectedTeam = ref<Team>(groups[0].teams[0]);
     </DialogContent>
   </Dialog>
 </template> -->
+<template>
+  <div>demo</div>
+</template>
