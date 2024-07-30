@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import { ref } from "vue";
 import CaretSortIcon from "~icons/radix-icons/caret-sort";
 import CheckIcon from "~icons/radix-icons/check";
@@ -192,4 +192,4 @@ const selectedTeam = ref<Team>(groups[0].teams[0]);
       </DialogFooter>
     </DialogContent>
   </Dialog>
-</template>
+</template> -->

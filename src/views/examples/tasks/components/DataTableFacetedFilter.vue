@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import type { Column } from "@tanstack/vue-table";
 import type { Component } from "vue";
 import { computed } from "vue";
@@ -141,4 +141,4 @@ const selectedValues = computed(() => new Set(props.column?.getFilterValue() as 
       </Command>
     </PopoverContent>
   </Popover>
-</template>
+</template> -->
