@@ -27,10 +27,9 @@ export const VITE_DEV_SERVER_URL = process.env["VITE_DEV_SERVER_URL"];
 export const MAIN_DIST = path.join(process.env.APP_ROOT, "dist-electron");
 export const RENDERER_DIST = path.join(process.env.APP_ROOT, "dist");
 
-process.env.VITE_PUBLIC = VITE_DEV_SERVER_URL
+const env_VITE_PUBLIC = VITE_DEV_SERVER_URL
   ? path.join(process.env.APP_ROOT, "public")
   : RENDERER_DIST;
-
 let win: BrowserWindow | null;
 let workerProcess: ChildProcess | null;
 function createWindow() {
@@ -41,7 +40,7 @@ function createWindow() {
     // fullscreenable: true,
     // frame: false,
     height: 800,
-    icon: path.join(process.env.VITE_PUBLIC, "electron-vite.svg"),
+    icon: path.join(env_VITE_PUBLIC, "electron-vite.svg"),
     titleBarStyle: "hidden",
     titleBarOverlay: {
       color: "rgba(0,0,0,0)",
